@@ -1,0 +1,11 @@
+<server description="Sample Liberty server">
+
+  <!-- Enable features -->
+  <featureManager>
+    <feature>jsp-2.3</feature>
+  </featureManager>
+
+  <!-- tag::server[] -->
+  <!-- TO-DO: ADD THE CONFIGURATION HERE -->
+  <!-- end::server[] -->
+</server>

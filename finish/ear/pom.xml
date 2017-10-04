@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- tag::packaging[] -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.openliberty.guides</groupId>
+  <artifactId>io.openliberty.guides.multimodules.ear</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ear</packaging>
+  <!-- end::packaging[] -->
+
+  <!-- tag::parent[] -->
+  <parent>
+    <groupId>io.openliberty.guides</groupId>
+    <artifactId>io.openliberty.guides.multimodules.modules</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <!-- end::parent[] -->
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <app.name>LibertyProject</app.name>
+    <testServerHttpPort>9080</testServerHttpPort>
+    <testServerHttpsPort>9443</testServerHttpsPort>
+    <package.file>${project.build.directory}/${app.name}.zip</package.file>
+    <packaging.type>usr</packaging.type>
+  </properties>
+
+  <dependencies>
+    <!-- web and jar modules as dependencies -->
+    <!-- tag::dependencies[] -->
+    <dependency>
+      <groupId>io.openliberty.guides</groupId>
+      <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>io.openliberty.guides</groupId>
+      <artifactId>io.openliberty.guides.multimodules.war</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <!-- end::dependencies[] -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- tag::build[] -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.10.1</version>
+        <configuration>
+          <modules>
+            <jarModule>
+              <groupId>io.openliberty.guides</groupId>
+              <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
+            </jarModule>
+            <webModule>
+              <groupId>io.openliberty.guides</groupId>
+              <artifactId>io.openliberty.guides.multimodules.war</artifactId>
+            </webModule>
+          </modules>
+          <!-- Use custom application.xml to set custom context root so set the below to false -->
+          <generateApplicationXml>false</generateApplicationXml>
+        </configuration>
+      </plugin>
+      <!-- end::build[] -->
+
+      <!-- Enable liberty-maven plugin -->
+      <plugin>
+        <groupId>net.wasdev.wlp.maven.plugins</groupId>
+        <artifactId>liberty-maven-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <assemblyArtifact>
+            <groupId>io.openliberty</groupId>
+            <artifactId>openliberty-runtime</artifactId>
+            <version>17.0.0.3</version>
+            <type>zip</type>
+          </assemblyArtifact>
+          <configFile>src/main/liberty/config/server.xml</configFile>
+          <packageFile>${package.file}</packageFile>
+          <include>${packaging.type}</include>
+          <bootstrapProperties>
+            <default.http.port>${testServerHttpPort}</default.http.port>
+            <default.https.port>${testServerHttpsPort}</default.https.port>
+          </bootstrapProperties>
+        </configuration>
+        <executions>
+          <!-- Download liberty/wlp -->
+          <execution>
+            <id>install-liberty</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>install-server</goal>
+            </goals>
+          </execution>
+
+          <!-- Create defaultServer under usr/ -->
+          <execution>
+            <id>package-app</id>
+            <phase>package</phase>
+            <goals>
+              <goal>package-server</goal>
+            </goals>
+          </execution>
+
+          <!-- Copy ear to defaultServer/apps -->
+          <execution>
+            <id>install-app</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>install-apps</goal>
+            </goals>
+            <configuration>
+              <looseApplication>true</looseApplication>
+              <stripVersion>false</stripVersion>
+              <installAppPackages>project</installAppPackages>
+            </configuration>
+          </execution>
+
+          <!-- Start server -->
+          <execution>
+            <id>start-server</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start-server</goal>
+            </goals>
+          </execution>
+
+          <!-- Stop server (after execution of integration test) -->
+          <execution>
+            <id>stop-server</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop-server</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Since the package type is ear, need to run testCompile to compile the tests -->
+      <!-- tag::test-compile[] -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <executions>
+          <execution>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- end::test-compile[] -->
+
+      <!-- Plugin to run integration tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.18.1</version>
+        <executions>
+          <execution>
+            <phase>integration-test</phase>
+            <id>integration-test</id>
+            <goals>
+              <goal>integration-test</goal>
+            </goals>
+            <configuration>
+              <includes>
+                <include>**/it/**</include>
+              </includes>
+              <systemPropertyVariables>
+                <liberty.test.port>${testServerHttpPort}</liberty.test.port>
+                <running.bluemix>${running.bluemix}</running.bluemix>
+                <cf.context.root>${cf.context.root}</cf.context.root>
+              </systemPropertyVariables>
+            </configuration>
+          </execution>
+          <execution>
+            <id>verify-results</id>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <summaryFile>${project.build.directory}/test-reports/it/failsafe-summary.xml</summaryFile>
+          <reportsDirectory>${project.build.directory}/test-reports/it</reportsDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
