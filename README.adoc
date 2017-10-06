@@ -11,7 +11,7 @@
 :page-description: Learn how to build a multi-module application
 :page-tags: ['Maven', 'Multiple Modules']
 :page-permalink: /guides/{projectid}
-:common-includes: ../guides-common/
+:common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
 :source-highlighter: prettify
 = Creating a multi-module application
 
