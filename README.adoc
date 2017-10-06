@@ -143,9 +143,10 @@ include::finish/ear/src/main/liberty/config/server.xml[tags=server]
 
 To build the three modules, run the following commands from the `jar` directory, `war` directory, and `ear` directory in that order. Start with the `jar` directory, proceed to the `war` directory, and end with the `ear` directory.
 
-```
+[source, role="no_copy"]
+----
 mvn clean install
-```
+----
 
 These commands create a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
 
@@ -158,12 +159,13 @@ These commands create a JAR file in the `jar/target` directory, a WAR file in th
 
 To deploy your EAR application on an Open Liberty server, run the Maven `liberty:start-server` goal from the `ear` directory:
 
-```
+[source, role="no_copy"]
+----
 # Change directory if necessary
 cd ../../start/ear
 
 mvn liberty:start-server
-```
+----
 
 Once the server is running, you can find the application at the following URL:
 
@@ -173,9 +175,10 @@ http://localhost:9080/converter/
 
 To stop the server, enter the following command:
 
-```
+[source, role="no_copy"]
+----
 mvn liberty:stop-server
-```
+----
 
 
 // =================================================================================================
@@ -211,13 +214,15 @@ include::finish/ear/pom.xml[tags=test-compile]
 
 Enter the following command to run the test from the `start/ear` directory:
 
-```
+[source, role="no_copy"]
+----
 mvn verify
-```
+----
 
 The program returns the following output:
 
-```
+[source, role="no_copy"]
+----
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
@@ -228,7 +233,7 @@ Results :
 
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 
-```
+----
 
 
 // =================================================================================================
@@ -271,9 +276,10 @@ include::finish/ear/pom.xml[tags=parent]
 
 Use the following command to build the entire application from the `start` directory:
 
-```
+[source, role="no_copy"]
+----
 mvn clean install
-```
+----
 
 You no longer need to execute multiple `mvn install` commands from different directories. With a single command, you can build and test the whole application and all of the modules.
 
