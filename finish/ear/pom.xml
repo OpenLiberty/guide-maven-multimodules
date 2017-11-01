@@ -69,10 +69,10 @@
             <webModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.war</artifactId>
+              <!-- Set custom context root -->
+              <contextRoot>/converter</contextRoot>
             </webModule>
           </modules>
-          <!-- Use custom application.xml to set custom context root so set the below to false -->
-          <generateApplicationXml>false</generateApplicationXml>
         </configuration>
       </plugin>
       <!-- end::build[] -->

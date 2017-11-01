@@ -110,19 +110,11 @@ include::finish/ear/pom.xml[tags=dependencies]
 ----
 
 Add the definition and configuration of the `maven-ear-plugin` plug-in for creating an EAR file. Define the `<webModule>` and `<jarModule>` modules to be packaged into the EAR file.
+To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 [source, xml, indent=0]
 ----
 include::finish/ear/pom.xml[tags=build]
-----
-
-To customize the context root of the application, disable the autogeneration of the `application.xml` file. Specify the line, `<generateApplicationXml>false</generateApplicationXml>`. Otherwise, Maven automatically generates an `application.xml` file and uses the WAR file `artifactId` ID as the context root for the application.
-
-In the `start/ear/src/main/application/META-INF` directory, add the custom context root to the `application.xml` file:
-
-[source, xml, indent=0]
-----
-include::finish/ear/src/main/application/META-INF/application.xml[tags=application]
 ----
 
 To download and start an Open Liberty server, use the `liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
