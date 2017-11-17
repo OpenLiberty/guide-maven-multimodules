@@ -8,6 +8,7 @@
 :projectid: maven-multimodules
 :page-layout: guide
 :page-duration: 30 minutes
+:page-releasedate: 2017-10-04
 :page-description: Learn how to build a multi-module application
 :page-tags: ['Maven', 'Multiple Modules']
 :page-permalink: /guides/{projectid}
