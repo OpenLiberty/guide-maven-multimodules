@@ -9,7 +9,7 @@
 :page-layout: guide
 :page-duration: 30 minutes
 :page-releasedate: 2017-10-04
-:page-description: Learn how to build a multi-module application
+:page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
 :page-tags: ['Maven', 'Multiple Modules']
 :page-permalink: /guides/{projectid}
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
@@ -212,7 +212,7 @@ Enter the following command to run the test from the `start/ear` directory:
 mvn verify
 ----
 
-The program returns the following output:
+If the tests pass, you will see a similar output to the following:
 
 [source, role="no_copy"]
 ----
