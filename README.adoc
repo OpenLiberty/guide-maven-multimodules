@@ -10,6 +10,7 @@
 :page-duration: 30 minutes
 :page-releasedate: 2017-10-04
 :page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
+:page-related-guides: ['maven-intro']
 :page-tags: ['Maven', 'Multiple Modules']
 :page-permalink: /guides/{projectid}
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
