@@ -17,6 +17,18 @@
   </modules>
   <!-- end::modules[] -->
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <app.name>LibertyProject</app.name>
+    <testServerHttpPort>9080</testServerHttpPort>
+    <testServerHttpsPort>9443</testServerHttpsPort>
+    <package.file>${project.build.directory}/${app.name}.zip</package.file>
+    <packaging.type>usr</packaging.type>
+  </properties>
+
   <dependencies>
       <dependency>
           <groupId>javax.xml.bind</groupId>
