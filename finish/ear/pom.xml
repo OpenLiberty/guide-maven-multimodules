@@ -47,20 +47,24 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-ear-plugin</artifactId>
-        <version>2.10.1</version>
+        <version>3.0.1</version>
         <configuration>
           <modules>
             <jarModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
+              <uri>io.openliberty.guides.multimodules.jar-0.0.1-SNAPSHOT.jar</uri>
             </jarModule>
             <webModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.war</artifactId>
+              <uri>io.openliberty.guides.multimodules.war-0.0.1-SNAPSHOT.war</uri>
               <!-- Set custom context root -->
               <contextRoot>/converter</contextRoot>
             </webModule>
           </modules>
+          <!-- Use custom application.xml to set custom context root so set the below to false -->
+          <!-- <generateApplicationXml>false</generateApplicationXml> -->
         </configuration>
       </plugin>
       <!-- end::build[] -->
