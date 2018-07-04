@@ -17,6 +17,9 @@
 :source-highlighter: prettify
 = Creating a multi-module application
 
+[.hidden]
+NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website].
+
 You will learn how to build an application with multiple modules with Maven and Open Liberty.
 
 // =================================================================================================
