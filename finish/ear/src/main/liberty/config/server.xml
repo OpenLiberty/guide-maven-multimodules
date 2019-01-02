@@ -12,6 +12,7 @@
     id="defaultHttpEndpoint" />
 
   <enterpriseApplication id="io.openliberty.guides.multimodules.ear"
-    location="io.openliberty.guides.multimodules.ear-0.0.1-SNAPSHOT.ear" name="io.openliberty.guides.multimodules.ear" />
+    location="io.openliberty.guides.multimodules.ear-0.0.1-SNAPSHOT.ear" 
+    name="io.openliberty.guides.multimodules.ear" />
   <!-- end::server[] -->
 </server>
