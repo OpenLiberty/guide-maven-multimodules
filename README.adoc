@@ -82,7 +82,7 @@ pom.xml
 ----
 include::finish/war/pom.xml[tags=**]
 ----
-Go to the dependency section, where you can add more dependencies. Add the [hotspot=39-43 file=0]`<dependency />` element: the Java library module that implements the functions that you need for the unit converter.
+Go to the dependency section, where you can add more dependencies. Add the [hotspot=36-40 file=0]`<dependency />` element: the Java library module that implements the functions that you need for the unit converter.
 
 After you add the dependency, use any functions included in the library in the `HeightsBean.java` class of the web module.
 
@@ -122,14 +122,14 @@ pom.xml
 include::finish/ear/pom.xml[tags=**]
 ----
 
-Set the [hotspot=7-11]`basic configuration` for the project and set the packaging type to [hotspot=11]`ear`.
+Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging />` element to `ear`.
 
-Next, add the dependencies. Define the [hotspot=26-31]`Java library module` and the [hotspot=32-37]`web module` as dependencies. Specify [hotspot=31]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
+Next, add the dependencies. Define the [hotspot=26-31 file=0]`Java library module` and the [hotspot=32-37 file=0]`web module` as dependencies. Specify [hotspot=31]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
-Add the definition and configuration of the [hotspot=50-70]`maven-ear-plugin` plug-in for creating an EAR file. Define the [hotspot=56-60]`<jarModule>` and [hotspot=61-67]`<webModule>` modules to be packaged into the EAR file.
+Add the definition and configuration of the [hotspot=50-70 file=0]`maven-ear-plugin` plug-in for creating an EAR file. Define the [hotspot=56-60]`<jarModule>` and [hotspot=61-67 file=0]`<webModule>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
-To download and start an Open Liberty server, use the [hotspot=74-104]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
+To download and start an Open Liberty server, use the [hotspot=74-104 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
 To deploy the EAR application, you need to congiure a server.
 
@@ -251,7 +251,7 @@ Because you have multiple modules, aggregate the Maven projects to simplify the 
 
 Create a parent `pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
 
-[role="code_command hotspot=1-18", subs="quotes"]
+[role="code_command hotspot=1-100", subs="quotes"]
 ----
 Edit the POM file.
 `start/pom.xml`
@@ -261,9 +261,9 @@ pom.xml
 ----
 include::finish/pom.xml[tags=**]
 ----
-Set the basic configuration for the project. Set `pom` as the [hotspot=18 file=0]`<packaging />` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=15 file=0]`<groupId />` ID, which the child `pom.xml` files will inherit.
+Set the basic configuration for the project. Set `pom` as the [hotspot=17 file=0]`<packaging />` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId />` ID, which the child `pom.xml` files will inherit.
 
-In the parent `pom.xml` file, list all of the [hotspot=22-26 file=0]`<modules />` that you want to aggregate for the application.
+In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules />` that you want to aggregate for the application.
 
 Lastly,
 [role="code_command hotspot=16-20", subs="quotes"]
@@ -271,6 +271,7 @@ Lastly,
 Add a `<parent />` section to each of the `pom.xml` files in the child modules,
 such as the `jar`, `war`, and `ear` projects.
 ----
+pom.xml
 [source, xml, indent=0]
 ----
 include::finish/ear/pom.xml[tags=parent]
