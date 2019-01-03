@@ -268,7 +268,7 @@ In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules />
 Lastly,
 [role="code_command hotspot=16-20", subs="quotes"]
 ----
-Add a `\<parent />\` section to each of the `pom.xml` files in the child modules,
+Add a `/<parent />/` section to each of the `pom.xml` files in the child modules,
 such as the `jar`, `war`, and `ear` projects.
 ----
 pom.xml
