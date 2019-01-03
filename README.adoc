@@ -300,7 +300,7 @@ You no longer need to execute multiple `mvn install` commands from different dir
 
 == Great work! You're done!
 
-You built and tested a multi-module unit converter application on the Open Liberty runtime with Maven.
+You built and tested a multi-module unit converter application on the with Maven in Open Liberty.
 
 
 include::{common-includes}/finish.adoc[]
