@@ -97,9 +97,9 @@ HeightsBean.java
 include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[tags=**;!copyright]
 ----
 
-Add the [hotspot=36 file=1]`getFeet(cm)` to the [hotspot=33-40 file=1]`setHeightFeet` method to convert a measurement into feet.
+Add the [hotspot=35 file=1]`getFeet(cm)` to the [hotspot=33-38 file=1]`setHeightFeet` method to convert a measurement into feet.
 
-Then, add [hotspot=47 file=1]`getInches(cm)` to the [hotspot=42-49 file=1]`setHeightInches` method to convert a measurement into inches.
+Then, add [hotspot=42 file=1]`getInches(cm)` to the [hotspot=40-45 file=1]`setHeightInches` method to convert a measurement into inches.
 
 
 // =================================================================================================
@@ -124,12 +124,12 @@ include::finish/ear/pom.xml[tags=**]
 
 Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging />` element to `ear`.
 
-Next, add the dependencies. Define the [hotspot=26-31 file=0]`Java library module` and the [hotspot=32-37 file=0]`web module` as dependencies. Specify [hotspot=31]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
+Next, add the dependencies. Define the [hotspot=21-26 file=0]`Java library module` and the [hotspot=27-32 file=0]`web module` as dependencies. Specify [hotspot=31 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
-Add the definition and configuration of the [hotspot=50-70 file=0]`maven-ear-plugin` plug-in for creating an EAR file. Define the [hotspot=56-60]`<jarModule>` and [hotspot=61-67 file=0]`<webModule>` modules to be packaged into the EAR file.
+Add the definition and configuration of the [hotspot=43-63 file=0]`maven-ear-plugin` plug-in for creating an EAR file. Define the [hotspot=49-53 file=0]`<jarModule>` and [hotspot=54-60 file=0]`<webModule>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
-To download and start an Open Liberty server, use the [hotspot=74-104 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
+To download and start an Open Liberty server, use the [hotspot=66-96 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
 To deploy the EAR application, you need to congiure a server.
 
@@ -141,7 +141,7 @@ Create the server configuration file.
 server.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/ear/src/main/liberty/config/server.xml[tags=server]
+include::finish/ear/src/main/liberty/config/server.xml[tags=**]
 ----
 
 // =================================================================================================
@@ -194,7 +194,7 @@ To test the multi-module application, add integration tests to the EAR project.
 
 Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the `Test.java` file. Helper functions for the integration test class are provided.
 
-[role="code_command hotspot=1-18", subs="quotes"]
+[role="code_command hotspot=11-52", subs="quotes"]
 ----
 Edit the `Test` class.
 `start/ear/src/test/java/it/io/openliberty/guides/multimodules`
@@ -205,11 +205,11 @@ Test.java
 include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[tags=**;!copyright]
 ----
 
-Add the [hotspot=18-24 file=0]`testIndexPage` test to check that you can access the landing page.
+Add the [hotspot=17-23 file=0]`testIndexPage` test to check that you can access the landing page.
 
-Add the [hotspot=29-34 file=0]`testHeightsPage` test to check that the application can process the input value and calculate the result correctly.
+Add the [hotspot=26-31 file=0]`testHeightsPage` test to check that the application can process the input value and calculate the result correctly.
 
-For a Maven EAR project, the [hotspot=116 file=1]`testCompile` goal is specified for the [hotspot=108-120 file=1]`maven-compiler-plugin` plug-in in your `ear/pom.xml` file so that the test cases are compiled and picked up for execution.
+For a Maven EAR project, the [hotspot=107 file=1]`testCompile` goal is specified for the [hotspot=99-111 file=1]`maven-compiler-plugin` plug-in in your `ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
 pom.xml
 [source, xml, linenums, role='code_column']
@@ -261,18 +261,18 @@ pom.xml
 ----
 include::finish/pom.xml[tags=**]
 ----
-Set the basic configuration for the project. Set `pom` as the [hotspot=17 file=0]`<packaging />` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId />` ID, which the child `pom.xml` files will inherit.
+Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging />` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId />` ID, which the child `pom.xml` files will inherit.
 
 In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules />` that you want to aggregate for the application.
 
 Lastly,
 [role="code_command hotspot=16-20", subs="quotes"]
 ----
-Add a `<parent />` section to each of the `pom.xml` files in the child modules,
+Add a `\<parent />\` section to each of the `pom.xml` files in the child modules,
 such as the `jar`, `war`, and `ear` projects.
 ----
 pom.xml
-[source, xml, indent=0]
+[source, xml, linenums, role='code_column']
 ----
 include::finish/ear/pom.xml[tags=parent]
 ----
