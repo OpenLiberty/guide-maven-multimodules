@@ -84,7 +84,7 @@ include::finish/war/pom.xml[tags=**]
 ----
 Go to the dependency section, where you can add more dependencies. Add the [hotspot=36-40 file=0]`<dependency/>` element: the Java library module that implements the functions that you need for the unit converter.
 
-After you add the dependency, use any functions included in the library in the `HeightsBean.java` class of the web module.
+After you add the dependency, use any functions included in the library in the [hotspot=1-51 file=1]`HeightsBean.java` class of the web module.
 
 [role="code_command hotspot=3-51", subs="quotes"]
 ----
@@ -192,7 +192,7 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot1-52 file=0]`Test.java` file. Helper functions for the integration test class are provided.
+Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot=1-52 file=0]`Test.java` file. Helper functions for the integration test class are provided.
 
 [role="code_command hotspot=11-52", subs="quotes"]
 ----
