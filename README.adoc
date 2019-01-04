@@ -72,7 +72,7 @@ As you might notice, each module has its own `pom.xml` file because each module 
 
 Navigate to the `start` directory to begin.
 
-[role="code_command hotspot=1-47", subs="quotes"]
+[role="code_command hotspot=36-40", subs="quotes"]
 ----
 Edit the POM file.
 `war/pom.xml`
@@ -111,7 +111,7 @@ Then, add [hotspot=42 file=1]`getInches(cm)` to the [hotspot=40-45 file=1]`setHe
 To deploy the entire application on the Open Liberty server, first package the application. Use the EAR project to assemble multiple modules into an EAR file.
 
 Navigate to the `ear` folder and find a template `pom.xml` file. 
-[role="code_command hotspot=1-124", subs="quotes"]
+[role="code_command hotspot=7-63", subs="quotes"]
 ----
 Edit the POM file.
 `ear/pom.xml`
