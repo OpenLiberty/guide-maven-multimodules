@@ -192,7 +192,7 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot1-52]`Test.java` file. Helper functions for the integration test class are provided.
+Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot1-52 file=0]`Test.java` file. Helper functions for the integration test class are provided.
 
 [role="code_command hotspot=11-52", subs="quotes"]
 ----
