@@ -82,7 +82,7 @@ pom.xml
 ----
 include::finish/war/pom.xml[tags=**]
 ----
-Go to the dependency section, where you can add more dependencies. Add the [hotspot=36-40 file=0]`<dependency />` element: the Java library module that implements the functions that you need for the unit converter.
+Go to the dependency section, where you can add more dependencies. Add the [hotspot=36-40 file=0]`<dependency/>` element: the Java library module that implements the functions that you need for the unit converter.
 
 After you add the dependency, use any functions included in the library in the `HeightsBean.java` class of the web module.
 
@@ -122,7 +122,7 @@ pom.xml
 include::finish/ear/pom.xml[tags=**]
 ----
 
-Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging />` element to `ear`.
+Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging/>` element to `ear`.
 
 Next, add the dependencies. Define the [hotspot=21-26 file=0]`Java library module` and the [hotspot=27-32 file=0]`web module` as dependencies. Specify [hotspot=31 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
@@ -192,7 +192,7 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the `Test.java` file. Helper functions for the integration test class are provided.
+Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot1-52]`Test.java` file. Helper functions for the integration test class are provided.
 
 [role="code_command hotspot=11-52", subs="quotes"]
 ----
@@ -251,7 +251,7 @@ Because you have multiple modules, aggregate the Maven projects to simplify the 
 
 Create a parent `pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
 
-[role="code_command hotspot=1-100", subs="quotes"]
+[role="code_command hotspot=13-23", subs="quotes"]
 ----
 Edit the POM file.
 `start/pom.xml`
@@ -261,14 +261,14 @@ pom.xml
 ----
 include::finish/pom.xml[tags=**]
 ----
-Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging />` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId />` ID, which the child `pom.xml` files will inherit.
+Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging/>` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId/>` ID, which the child `pom.xml` files will inherit.
 
-In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules />` that you want to aggregate for the application.
+In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules/>` that you want to aggregate for the application.
 
 Lastly,
 [role="code_command hotspot=1-5", subs="quotes"]
 ----
-Add a `<parent/>` section to each of the `pom.xml` files in the child modules,
+Add a `&ltparent/&gt;` section to each of the `pom.xml` files in the child modules,
 such as the `jar`, `war`, and `ear` projects.
 ----
 pom.xml
