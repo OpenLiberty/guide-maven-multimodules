@@ -75,7 +75,7 @@ Navigate to the `start` directory to begin.
 
 [role="code_command hotspot=36-40", subs="quotes"]
 ----
-Edit the POM file.
+#Edit the POM file.#
 `war/pom.xml`
 ----
 pom.xml
@@ -89,7 +89,7 @@ After you add the dependency, use any functions included in the library in the [
 
 [role="code_command hotspot=3-51", subs="quotes"]
 ----
-Edit the `HeightsBean` class.
+#Edit the `HeightsBean` class.#
 `war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
 ----
 HeightsBean.java
@@ -114,7 +114,7 @@ To deploy the entire application on the Open Liberty server, first package the a
 Navigate to the `ear` folder and find a template `pom.xml` file. 
 [role="code_command hotspot=7-63", subs="quotes"]
 ----
-Edit the POM file.
+#Edit the POM file.#
 `ear/pom.xml`
 ----
 pom.xml
@@ -136,7 +136,7 @@ To deploy the EAR application, you need to congiure a server.
 
 [role="code_command hotspot=1-18", subs="quotes"]
 ----
-Create the server configuration file.
+#Create the server configuration file.#
 `ear/src/main/liberty/config`
 ----
 server.xml
@@ -197,7 +197,7 @@ Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` 
 
 [role="code_command hotspot=11-52", subs="quotes"]
 ----
-Edit the `Test` class.
+#Edit the `Test` class.#
 `start/ear/src/test/java/it/io/openliberty/guides/multimodules`
 ----
 Test.java
@@ -250,7 +250,7 @@ Create a parent `pom.xml` file under the `start` directory to link all of the ch
 
 [role="code_command hotspot=13-23", subs="quotes"]
 ----
-Edit the POM file.
+#Edit the POM file.#
 `start/pom.xml`
 ----
 pom.xml
@@ -265,8 +265,8 @@ In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules/>`
 Lastly,
 [role="code_command hotspot=1-5", subs="quotes"]
 ----
-Add a `&ltparent/&gt;` section to each of the `pom.xml` files in the child modules,
-such as the `jar`, `war`, and `ear` projects.
+#Add a `&ltparent/&gt;` section to each of the `pom.xml` files in the child modules,
+such as the `jar`, `war`, and `ear` projects.#
 ----
 pom.xml
 [source, xml, linenums, role='code_column']
