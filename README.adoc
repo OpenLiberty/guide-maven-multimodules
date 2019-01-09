@@ -73,7 +73,7 @@ As you might notice, each module has its own `pom.xml` file because each module 
 
 Navigate to the `start` directory to begin.
 
-[role="code_command hotspot=36-40", subs="quotes"]
+[role="code_command hotspot=30-34", subs="quotes"]
 ----
 #Edit the POM file.#
 `war/pom.xml`
@@ -81,9 +81,9 @@ Navigate to the `start` directory to begin.
 pom.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/war/pom.xml[tags=**]
+include::finish/war/pom.xml[tags=**;!parent]
 ----
-Go to the dependency section, where you can add more dependencies. Add the [hotspot=36-40 file=0]`<dependency/>` element: the Java library module that implements the functions that you need for the unit converter.
+Go to the dependency section, where you can add more dependencies. Add the [hotspot=30-34 file=0]`<dependency/>` element: the Java library module that implements the functions that you need for the unit converter.
 
 After you add the dependency, use any functions included in the library in the [hotspot=1-51 file=1]`HeightsBean.java` file of the web module.
 
@@ -120,7 +120,7 @@ Navigate to the `ear` folder and find a template `pom.xml` file.
 pom.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/ear/pom.xml[tags=**]
+include::finish/ear/pom.xml[tags=**;!parent]
 ----
 
 Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging/>` element to `ear`.
@@ -137,7 +137,7 @@ To deploy the EAR application, you need to congiure a server.
 [role="code_command hotspot=1-18", subs="quotes"]
 ----
 #Create the server configuration file.#
-`ear/src/main/liberty/config`
+`ear/src/main/liberty/config/server.xml`
 ----
 server.xml
 [source, xml, linenums, role='code_column']
@@ -171,7 +171,6 @@ To deploy your EAR application on an Open Liberty server, run the Maven `liberty
 
 [role=command]
 ----
-cd ../../start/ear
 mvn liberty:start-server
 ----
 
