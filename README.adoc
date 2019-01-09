@@ -125,12 +125,12 @@ include::finish/ear/pom.xml[tags=**;!parent]
 
 Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging/>` element to `ear`.
 
-Next, add the dependencies. Define the [hotspot=21-26 file=0]`Java library module` and the [hotspot=27-32 file=0]`web module` as dependencies. Specify [hotspot=31 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
+Next, add the dependencies. Define the [hotspot=16-21 file=0]`Java library module` and the [hotspot=22-27 file=0]`web module` as dependencies. Specify [hotspot=31 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
-Add the definition and configuration of the [hotspot=43-63 file=0]`maven-ear-plugin` plug-in for creating an EAR file. Define the [hotspot=49-53 file=0]`<jarModule>` and [hotspot=54-60 file=0]`<webModule>` modules to be packaged into the EAR file.
+Add the definition and configuration of the [hotspot=38-58 file=0]`maven-ear-plugin` plug-in for creating an EAR file. Define the [hotspot=44-48 file=0]`<jarModule>` and [hotspot=49-55 file=0]`<webModule>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
-To download and start an Open Liberty server, use the [hotspot=66-95 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
+To download and start an Open Liberty server, use the [hotspot=61-90 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
 To deploy the EAR application, you need to congiure a server.
 
