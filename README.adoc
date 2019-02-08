@@ -35,12 +35,8 @@ You will learn how to establish a dependency between a web module and a Java lib
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. Enter heights in centimeters from a web page, and the application processes the input with functions in the JAR file to return the corresponding height in Imperial units.
 
-When the application is running, you can access the unit converter at the following location:
+When the application is running, you can access the unit converter at the following location: http://localhost:9080/converter
 
-[source, role="no_copy"]
-----
-http://localhost:9080/converter/
-----
 
 
 // =================================================================================================
@@ -262,11 +258,19 @@ Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` a
 In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules/>` that you want to aggregate for the application.
 
 Lastly,
-[role="code_command hotspot=1-5", subs="quotes"]
+
+[role="code_command hotspot", subs="quotes"]
 ----
-#Add a `&ltparent/&gt;` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
-such as the `jar`, `war`, and `ear` projects.#
+Update the `pom.xml` in the child module `jar`, `war` and `ear` projects.
+`jar/pom.xml`
+`war/pom.xml`
+`ear/pom.xml`
 ----
+
+[role="edit_command_text"]
+Add a [hotspot=1-5]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
+such as the `jar`, `war`, and `ear` projects.
+
 pom.xml
 [source, xml, linenums, role='code_column']
 ----
