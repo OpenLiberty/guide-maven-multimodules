@@ -71,10 +71,10 @@ Navigate to the `start` directory to begin.
 
 [role="code_command hotspot=30-34", subs="quotes"]
 ----
-#Replace the POM file.#
+#Replace the war/POM file.#
 `war/pom.xml`
 ----
-pom.xml
+war/pom.xml
 [source, xml, linenums, role='code_column']
 ----
 include::finish/war/pom.xml[tags=**;!parent]
@@ -110,10 +110,10 @@ To deploy the entire application on the Open Liberty server, first package the a
 Navigate to the `ear` folder and find a template `pom.xml` file. 
 [role="code_command hotspot=7-63", subs="quotes"]
 ----
-#Replace the POM file.#
+#Replace the ear/POM file.#
 `ear/pom.xml`
 ----
-pom.xml
+ear/pom.xml
 [source, xml, linenums, role='code_column']
 ----
 include::finish/ear/pom.xml[tags=**;!parent]
@@ -207,7 +207,7 @@ The [hotspot=26-31 file=0]`testHeightsPage` tests to check that the application 
 
 For a Maven EAR project, the [hotspot=106 file=1]`testCompile` goal is specified for the [hotspot=98-110 file=1]`maven-compiler-plugin` plug-in in your [hotspot=1-63 file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
-pom.xml
+ear/pom.xml
 [source, xml, linenums, role='code_column']
 ----
 include::finish/ear/pom.xml[tags=**;!parent]
@@ -245,10 +245,10 @@ Create a parent `pom.xml` file under the `start` directory to link all of the ch
 
 [role="code_command hotspot=13-23", subs="quotes"]
 ----
-#Replace the POM file.#
+#Replace the start/POM file.#
 `start/pom.xml`
 ----
-pom.xml
+start/pom.xml
 [source, xml, linenums, role='code_column']
 ----
 include::finish/pom.xml[tags=**]
@@ -261,7 +261,7 @@ Lastly,
 
 [role="code_command hotspot", subs="quotes"]
 ----
-Update the `pom.xml` in the child module `jar`, `war` and `ear` projects.
+#Update the `pom.xml` in the child module `jar`, `war` and `ear` projects.#
 `jar/pom.xml`
 `war/pom.xml`
 `ear/pom.xml`
