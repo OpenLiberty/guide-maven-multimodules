@@ -10,12 +10,12 @@
 :page-duration: 30 minutes
 :page-releasedate: 2017-10-04
 :page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
-:guide-author: Open Liberty
 :page-related-guides: ['maven-intro']
 :page-tags: []
 :page-permalink: /guides/{projectid}
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
 :source-highlighter: prettify
+:guide-author: Open Liberty
 = Creating a multi-module application
 
 [.hidden]
@@ -69,7 +69,7 @@ As you might notice, each module has its own `pom.xml` file because each module 
 
 Navigate to the `start` directory to begin.
 
-[role="code_command hotspot=30-34", subs="quotes"]
+[role="code_command hotspot", subs="quotes"]
 ----
 #Replace the war/POM file.#
 `war/pom.xml`
@@ -83,7 +83,7 @@ Go to the dependency section, where you can add more dependencies. Add the [hots
 
 After you add the dependency, use any functions included in the library in the [hotspot file=1]`HeightsBean.java` file of the web module.
 
-[role="code_command hotspot=3-51", subs="quotes"]
+[role="code_command hotspot", subs="quotes"]
 ----
 #Replace the `HeightsBean` class.#
 `war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
@@ -108,7 +108,7 @@ Then, add [hotspot=42 file=1]`getInches(cm)` to the [hotspot=40-45 file=1]`setHe
 To deploy the entire application on the Open Liberty server, first package the application. Use the EAR project to assemble multiple modules into an EAR file.
 
 Navigate to the `ear` folder and find a template `pom.xml` file. 
-[role="code_command hotspot=7-63", subs="quotes"]
+[role="code_command hotspot", subs="quotes"]
 ----
 #Replace the ear/POM file.#
 `ear/pom.xml`
@@ -130,7 +130,7 @@ To download and start an Open Liberty server, use the [hotspot=61-90 file=0]`lib
 
 To deploy the EAR application, you need to congiure a server.
 
-[role="code_command hotspot=1-18", subs="quotes"]
+[role="code_command hotspot", subs="quotes"]
 ----
 #Create the server configuration file.#
 `ear/src/main/liberty/config/server.xml`
@@ -188,9 +188,9 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot=1-52 file=0]`Test.java` file. Helper functions for the integration test class are provided.
+Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot file=0]`Test.java` file. Helper functions for the integration test class are provided.
 
-[role="code_command hotspot=11-52", subs="quotes"]
+[role="code_command hotspot", subs="quotes"]
 ----
 #Create the `Test` class.#
 `start/ear/src/test/java/it/io/openliberty/guides/multimodules`
@@ -205,7 +205,7 @@ The [hotspot=17-23 file=0]`testIndexPage` tests to check that you can access the
 
 The [hotspot=26-31 file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
-For a Maven EAR project, the [hotspot=106 file=1]`testCompile` goal is specified for the [hotspot=98-110 file=1]`maven-compiler-plugin` plug-in in your [hotspot=1-63 file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
+For a Maven EAR project, the [hotspot=106 file=1]`testCompile` goal is specified for the [hotspot=98-110 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
 ear/pom.xml
 [source, xml, linenums, role='code_column']
@@ -243,7 +243,7 @@ Because you have multiple modules, aggregate the Maven projects to simplify the 
 
 Create a parent `pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
 
-[role="code_command hotspot=13-23", subs="quotes"]
+[role="code_command hotspot", subs="quotes"]
 ----
 #Replace the start/POM file.#
 `start/pom.xml`
