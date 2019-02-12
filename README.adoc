@@ -35,7 +35,7 @@ You will learn how to establish a dependency between a web module and a Java lib
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. Enter heights in centimeters from a web page, and the application processes the input with functions in the JAR file to return the corresponding height in Imperial units.
 
-When the application is running, you can access the unit converter at the following location: http://localhost:9080/converter
+When the application is running, you can access the unit converter at the following location: http://localhost:9080/converter[http://localhost:9080/converter^]
 
 
 
@@ -170,7 +170,7 @@ To deploy your EAR application on an Open Liberty server, run the Maven `liberty
 mvn liberty:start-server
 ----
 
-Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/
+Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 
 To stop the server, enter the following command:
 
