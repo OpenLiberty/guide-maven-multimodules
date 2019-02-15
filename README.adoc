@@ -79,9 +79,9 @@ war/pom.xml
 ----
 include::finish/war/pom.xml[tags=**;!parent]
 ----
-Go to the dependency section, where you can add more dependencies. Add the [hotspot=30-34 file=0]`<dependency/>` element: the Java library module that implements the functions that you need for the unit converter.
+The [hotspot=30-34 file=0]`<dependency/>` element is the Java library module that implements the functions that you need for the unit converter.
 
-After you add the dependency, use any functions included in the library in the [hotspot file=1]`HeightsBean.java` file of the web module.
+With this dependency, you can use any functions included in the library in the [hotspot file=1]`HeightsBean.java` file of the web module.
 
 [role="code_command hotspot", subs="quotes"]
 ----
@@ -94,9 +94,9 @@ HeightsBean.java
 include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[tags=**;!copyright]
 ----
 
-Add the [hotspot=35 file=1]`getFeet(cm)` to the [hotspot=33-38 file=1]`setHeightFeet` method to convert a measurement into feet.
+The [hotspot=35 file=1]`getFeet(cm)` was added to the [hotspot=33-38 file=1]`setHeightFeet` method to convert a measurement into feet.
 
-Then, add [hotspot=42 file=1]`getInches(cm)` to the [hotspot=40-45 file=1]`setHeightInches` method to convert a measurement into inches.
+The [hotspot=42 file=1]`getInches(cm)` was added to the [hotspot=40-45 file=1]`setHeightInches` method to convert a measurement into inches.
 
 
 // =================================================================================================
@@ -121,9 +121,9 @@ include::finish/ear/pom.xml[tags=**;!parent]
 
 Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging/>` element to `ear`.
 
-Next, add the dependencies. Define the [hotspot=16-21 file=0]`Java library module` and the [hotspot=22-27 file=0]`web module` as dependencies. Specify [hotspot=26 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
+The [hotspot=16-21 file=0]`Java library module` and the [hotspot=22-27 file=0]`web module` were added as dependencies. Specify [hotspot=26 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
-Add the definition and configuration of the [hotspot=38-58 file=0]`maven-ear-plugin` plug-in for creating an EAR file. Define the [hotspot=44-48 file=0]`<jarModule>` and [hotspot=49-55 file=0]`<webModule>` modules to be packaged into the EAR file.
+The definition and configuration of the [hotspot=38-58 file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=44-48 file=0]`<jarModule>` and [hotspot=49-55 file=0]`<webModule>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 To download and start an Open Liberty server, use the [hotspot=61-90 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
@@ -151,7 +151,7 @@ To build the three modules, run the following commands from the `jar` directory,
 
 [role=command]
 ----
-mvn clean install
+mvn install
 ----
 
 These commands create a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
@@ -188,12 +188,12 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the [hotspot file=0]`Test.java` file. Helper functions for the integration test class are provided.
+Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory.
 
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the `Test` class.#
-`start/ear/src/test/java/it/io/openliberty/guides/multimodules`
+`start/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
 ----
 Test.java
 [source, Java, linenums, role='code_column']
@@ -205,7 +205,7 @@ The [hotspot=17-23 file=0]`testIndexPage` tests to check that you can access the
 
 The [hotspot=26-31 file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
-For a Maven EAR project, the [hotspot=106 file=1]`testCompile` goal is specified for the [hotspot=98-110 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
+For a Maven EAR project, the [hotspot=106 file=1]`testCompile` goal is specified for the [hotspot=93-15 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
 ear/pom.xml
 [source, xml, linenums, role='code_column']
@@ -288,7 +288,7 @@ Use the following command to build the entire application from the `start` direc
 
 [role=command]
 ----
-mvn clean install
+mvn install
 ----
 
 You no longer need to execute multiple `mvn install` commands from different directories. With a single command, you can build and test the whole application and all of the modules.
