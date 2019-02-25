@@ -203,7 +203,7 @@ The [hotspot=17-23 file=0]`testIndexPage` tests to check that you can access the
 
 The [hotspot=26-31 file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
-For a Maven EAR project, the [hotspot=106 file=1]`testCompile` goal is specified for the [hotspot=93-15 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
+For a Maven EAR project, the [hotspot=100-102 file=1]`testCompile` goal is specified for the [hotspot=93-105 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
 ear/pom.xml
 [source, xml, linenums, role='code_column']
