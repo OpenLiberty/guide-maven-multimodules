@@ -301,4 +301,4 @@ You no longer need to execute multiple `mvn install` commands from different dir
 You built and tested a multi-module unit converter application on the with Maven in Open Liberty.
 
 
-include::https://raw.githubusercontent.com/OpenLiberty/guides-common/multipane/attribution.adoc[subs="attributes"]
+include::{common-includes}/attribution.adoc[subs="attributes"]
