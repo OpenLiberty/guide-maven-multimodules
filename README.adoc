@@ -1,4 +1,4 @@
-// Copyright (c) 2017 IBM Corporation and others.
+// Copyright (c) 2017, 2019 IBM Corporation and others.
 // Licensed under Creative Commons Attribution-NoDerivatives
 // 4.0 International (CC BY-ND 4.0)
 //   https://creativecommons.org/licenses/by-nd/4.0/
@@ -6,15 +6,16 @@
 // Contributors:
 //   IBM Corporation
 :projectid: maven-multimodules
-:page-layout: guide
+:page-layout: guide-multipane
 :page-duration: 30 minutes
 :page-releasedate: 2017-10-04
 :page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
 :page-related-guides: ['maven-intro']
-:page-tags: ['Maven', 'Multiple Modules']
+:page-tags: []
 :page-permalink: /guides/{projectid}
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
 :source-highlighter: prettify
+:guide-author: Open Liberty
 = Creating a multi-module application
 
 [.hidden]
@@ -34,17 +35,15 @@ You will learn how to establish a dependency between a web module and a Java lib
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. Enter heights in centimeters from a web page, and the application processes the input with functions in the JAR file to return the corresponding height in Imperial units.
 
-When the application is running, you can access the unit converter at the following location:
+When the application is running, you can access the unit converter at the following location: http://localhost:9080/converter[http://localhost:9080/converter^]
 
-```
-http://localhost:9080/converter/
-```
 
 
 // =================================================================================================
 // Getting Started
 // =================================================================================================
 
+[role=command]
 include::{common-includes}/gitclone.adoc[]
 
 Access partial implementation of the application from the `start` folder. This folder includes a web module in the `war` folder, a Java library in the `jar` folder, and template files in the `ear` folder. However, the Java library and the web module are independent projects, and you will need to complete the following steps to implement the application:
@@ -68,28 +67,36 @@ To use the Java library in your web module, add a dependency relationship betwee
 
 As you might notice, each module has its own `pom.xml` file because each module is treated as an independent project. You can rebuild, reuse, and reassemble every module on its own.
 
-Open the `pom.xml` file of your WAR module. Go to the dependency section, where you can add more dependencies. Enter the following lines to add the Java library module that implements the functions that you need for the unit converter:
+Navigate to the `start` directory to begin.
 
-[source, xml, indent=0]
+[role="code_command hotspot", subs="quotes"]
 ----
-include::finish/war/pom.xml[tags=dependency]
+#Replace the war/POM file.#
+`war/pom.xml`
+----
+war/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/war/pom.xml[tags=**;!parent]
+----
+The [hotspot=30-34 file=0]`<dependency/>` element is the Java library module that implements the functions that you need for the unit converter.
+
+With this dependency, you can use any functions included in the library in the [hotspot file=1]`HeightsBean.java` file of the web module.
+
+[role="code_command hotspot", subs="quotes"]
+----
+#Replace the `HeightsBean` class.#
+`war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
+----
+HeightsBean.java
+[source, Java, linenums, role='code_column']
+----
+include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[tags=**;!copyright]
 ----
 
-After you add the dependency, use any functions included in the library in the `HeightsBean.java` class of the web module.
+The [hotspot=35 file=1]`getFeet(cm)` was added to the [hotspot=33-38 file=1]`setHeightFeet` method to convert a measurement into feet.
 
-In the `start/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java` class, add the following line to the `setHeightFeet` method to convert a measurement into feet:
-
-[source, java, indent=0]
-----
-include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[tags=dependency-code1]
-----
-
-Then, add the following line to the `setHeightInches` method to convert a measurement into inches:
-
-[source, java, indent=0]
-----
-include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[tags=dependency-code2]
-----
+The [hotspot=42 file=1]`getInches(cm)` was added to the [hotspot=40-45 file=1]`setHeightInches` method to convert a measurement into inches.
 
 
 // =================================================================================================
@@ -100,37 +107,39 @@ include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/Heights
 
 To deploy the entire application on the Open Liberty server, first package the application. Use the EAR project to assemble multiple modules into an EAR file.
 
-Navigate to the `ear` folder and find a template `pom.xml` file. In the `pom.xml` file, set the basic configuration for the project and set the packaging type to `ear`:
-
-[source, xml, indent=0]
+Navigate to the `ear` folder and find a template `pom.xml` file. 
+[role="code_command hotspot", subs="quotes"]
 ----
-include::finish/ear/pom.xml[tags=packaging]
+#Replace the ear/POM file.#
+`ear/pom.xml`
 ----
-
-Next, add the dependencies. Define the web module and the Java library module as dependencies. Specify `<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
-
-[source, xml, indent=0]
+ear/pom.xml
+[source, xml, linenums, role='code_column']
 ----
-include::finish/ear/pom.xml[tags=dependencies]
+include::finish/ear/pom.xml[tags=**;!parent]
 ----
 
-Add the definition and configuration of the `maven-ear-plugin` plug-in for creating an EAR file. Define the `<webModule>` and `<jarModule>` modules to be packaged into the EAR file.
+Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [hotspot=11 file=0]`<packaging/>` element to `ear`.
+
+The [hotspot=16-21 file=0]`Java library module` and the [hotspot=22-27 file=0]`web module` were added as dependencies. Specify [hotspot=26 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
+
+The definition and configuration of the [hotspot=38-58 file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=44-48 file=0]`<jarModule>` and [hotspot=49-55 file=0]`<webModule>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
-[source, xml, indent=0]
-----
-include::finish/ear/pom.xml[tags=build]
-----
+To download and start an Open Liberty server, use the [hotspot=61-90 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
-To download and start an Open Liberty server, use the `liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
+To deploy the EAR application, you need to congiure a server.
 
-To deploy the EAR application, create a `server.xml` file to configure the server. Add the following lines to the `server.xml` file in the `start/ear/src/main/liberty/config` directory:
-
-[source, xml, indent=0]
+[role="code_command hotspot", subs="quotes"]
 ----
-include::finish/ear/src/main/liberty/config/server.xml[tags=server]
+#Create the server configuration file.#
+`ear/src/main/liberty/config/server.xml`
 ----
-
+server.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/ear/src/main/liberty/config/server.xml[tags=**]
+----
 
 // =================================================================================================
 // Building the modules
@@ -140,9 +149,9 @@ include::finish/ear/src/main/liberty/config/server.xml[tags=server]
 
 To build the three modules, run the following commands from the `jar` directory, `war` directory, and `ear` directory in that order. Start with the `jar` directory, proceed to the `war` directory, and end with the `ear` directory.
 
-[source, role="no_copy"]
+[role=command]
 ----
-mvn clean install
+mvn install
 ----
 
 These commands create a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
@@ -156,23 +165,16 @@ These commands create a JAR file in the `jar/target` directory, a WAR file in th
 
 To deploy your EAR application on an Open Liberty server, run the Maven `liberty:start-server` goal from the `ear` directory:
 
-[source, role="no_copy"]
+[role=command]
 ----
-# Change directory if necessary
-cd ../../start/ear
-
 mvn liberty:start-server
 ----
 
-Once the server is running, you can find the application at the following URL:
-
-```
-http://localhost:9080/converter/
-```
+Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 
 To stop the server, enter the following command:
 
-[source, role="no_copy"]
+[role=command]
 ----
 mvn liberty:stop-server
 ----
@@ -186,37 +188,33 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start/ear/src/test/java/it/io/openliberty/guides/multimodules` directory. Open the `Test.java` file. Helper functions for the integration test class are provided.
-
-Add the `testIndexPage` test to check that you can access the landing page:
-
-[source, java, indent=0]
+[role="code_command hotspot", subs="quotes"]
 ----
-include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[tags=testIndexPage]
+#Create the `Test` class.#
+`start/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
 ----
-
-Add the `testHeightsPage` test to check that the application can process the input value and calculate the result correctly:
-
-[source, java, indent=0]
+Test.java
+[source, Java, linenums, role='code_column']
 ----
-include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[tags=testHeightsPage]
+include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[tags=**;!copyright]
 ----
 
-For a Maven EAR project, specify the `testCompile` goal for the `maven-compiler-plugin` plug-in so that the test cases are compiled and picked up for execution.
+The [hotspot=17-23 file=0]`testIndexPage` tests to check that you can access the landing page.
 
-[source, xml, indent=0]
+The [hotspot=26-31 file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
+
+For a Maven EAR project, the [hotspot=100-102 file=1]`testCompile` goal is specified for the [hotspot=93-105 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
+
+ear/pom.xml
+[source, xml, linenums, role='code_column']
 ----
-include::finish/ear/pom.xml[tags=test-compile]
+include::finish/ear/pom.xml[tags=**;!parent]
 ----
 
 Enter the following command to run the test from the `start/ear` directory:
 
-[source, role="no_copy"]
-----
-mvn verify
-----
-
-If the tests pass, you will see a similar output to the following:
+[role='command']
+include::{common-includes}/mvnverify.adoc[]
 
 [source, role="no_copy"]
 ----
@@ -243,23 +241,36 @@ Because you have multiple modules, aggregate the Maven projects to simplify the 
 
 Create a parent `pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
 
-Set `pom` as the `<packaging>` of the parent `pom.xml` file. Specify `io.openliberty.guides` as the `groupId` ID, which the child `pom.xml` files will inherit.
-
-[source, xml, indent=0]
+[role="code_command hotspot", subs="quotes"]
 ----
-include::finish/pom.xml[tags=packaging]
+#Replace the start/POM file.#
+`start/pom.xml`
+----
+start/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/pom.xml[tags=**]
+----
+Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging/>` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId/>` ID, which the child `pom.xml` files will inherit.
+
+In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules/>` that you want to aggregate for the application.
+
+Lastly,
+
+[role="code_command hotspot", subs="quotes"]
+----
+#Update the `pom.xml` in the child module `jar`, `war` and `ear` projects.#
+`jar/pom.xml`
+`war/pom.xml`
+`ear/pom.xml`
 ----
 
-In the parent `pom.xml` file, list all of the modules that you want to aggregate for the application:
+[role="edit_command_text"]
+Add a [hotspot=1-5]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
+such as the `jar`, `war`, and `ear` projects.
 
-[source, xml, indent=0]
-----
-include::finish/pom.xml[tags=modules]
-----
-
-Lastly, add a `parent` section to each of the `pom.xml` files in the child modules, such as the `jar`, `war`, and `ear` projects:
-
-[source, xml, indent=0]
+pom.xml
+[source, xml, linenums, role='code_column']
 ----
 include::finish/ear/pom.xml[tags=parent]
 ----
@@ -273,9 +284,9 @@ include::finish/ear/pom.xml[tags=parent]
 
 Use the following command to build the entire application from the `start` directory:
 
-[source, role="no_copy"]
+[role=command]
 ----
-mvn clean install
+mvn install
 ----
 
 You no longer need to execute multiple `mvn install` commands from different directories. With a single command, you can build and test the whole application and all of the modules.
@@ -287,7 +298,7 @@ You no longer need to execute multiple `mvn install` commands from different dir
 
 == Great work! You're done!
 
-You built and tested a multi-module unit converter application on the Open Liberty runtime with Maven.
+You built and tested a multi-module unit converter application on the with Maven in Open Liberty.
 
 
-include::{common-includes}/finish.adoc[]
+include::{common-includes}/attribution.adoc[subs="attributes"]
