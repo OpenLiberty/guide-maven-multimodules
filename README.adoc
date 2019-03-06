@@ -176,13 +176,31 @@ Lastly,
 ----
 
 [role="edit_command_text"]
-Add a [hotspot=1-5]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
-such as the `jar`, `war`, and `ear` projects.
+Add a [hotspot=1-5 file=1]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
+such as the [hotspot=9-13 file=2]`jar`, [hotspot=14-19 file=3]`war`, and [hotspot=13-17 file=4]`ear` projects.
 
 pom.xml
 [source, xml, linenums, role='code_column']
 ----
 include::finish/ear/pom.xml[tags=parent]
+----
+
+jar/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/jar/pom.xml[tags=**]
+----
+
+war/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/war/pom.xml[tags=**]
+----
+
+ear/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/ear/pom.xml[tags=**]
 ----
 
 // =================================================================================================
