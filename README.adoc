@@ -154,7 +154,7 @@ Create a parent `pom.xml` file under the `start` directory to link all of the ch
 [role="code_command hotspot", subs="quotes"]
 ----
 #Replace the start/POM file.#
-`start/pom.xml`
+`pom.xml`
 ----
 start/pom.xml
 [source, xml, linenums, role='code_column']
@@ -244,7 +244,7 @@ To test the multi-module application, add integration tests to the EAR project.
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the `Test` class.#
-`start/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
+`ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
 ----
 Test.java
 [source, Java, linenums, role='code_column']
