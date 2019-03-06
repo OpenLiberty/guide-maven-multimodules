@@ -191,24 +191,16 @@ include::finish/ear/pom.xml[tags=parent]
 
 == Building the modules
 
-Since the modules are independent, you can build them individually. To build the three modules, run the following commands from the `jar` directory, `war` directory, and `ear` directory in that order. Start with the `jar` directory, proceed to the `war` directory, and end with the `ear` directory.
+This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
+
+By aggregating the build in the previous section, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. Use the following command to build the entire application from the `start` directory:
 
 [role=command]
 ----
 mvn install
 ----
 
-These commands create a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
-
-By aggregating the build in the previous section, you can run `mvn install` once from the `start` directory and it will automatically build all your modules in the correct order. Use the following command to build the entire application from the `start` directory:
-
-[role=command]
-----
-mvn install
-----
-
-You no longer need to execute multiple `mvn install` commands from different directories. With a single command, you can build and test the whole application and all of the modules.
-
+Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding module directory.
 
 // =================================================================================================
 // Starting the application
