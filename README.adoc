@@ -35,9 +35,6 @@ You will learn how to establish a dependency between a web module and a Java lib
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. Enter heights in centimeters from a web page, and the application processes the input with functions in the JAR file to return the corresponding height in Imperial units.
 
-When the application is running, you can access the unit converter at the following location: http://localhost:9080/converter[http://localhost:9080/converter^]
-
-
 
 // =================================================================================================
 // Getting Started
