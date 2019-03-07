@@ -56,12 +56,12 @@
             <jarModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
-              <uri>io.openliberty.guides.multimodules.jar-0.0.1-SNAPSHOT.jar</uri>
+              <uri>/io.openliberty.guides.multimodules.jar-0.0.1-SNAPSHOT.jar</uri>
             </jarModule>
             <webModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.war</artifactId>
-              <uri>io.openliberty.guides.multimodules.war-0.0.1-SNAPSHOT.war</uri>
+              <uri>/io.openliberty.guides.multimodules.war-0.0.1-SNAPSHOT.war</uri>
               <!-- Set custom context root -->
               <contextRoot>/converter</contextRoot>
             </webModule>

@@ -35,9 +35,6 @@ You will learn how to establish a dependency between a web module and a Java lib
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. Enter heights in centimeters from a web page, and the application processes the input with functions in the JAR file to return the corresponding height in Imperial units.
 
-When the application is running, you can access the unit converter at the following location: http://localhost:9080/converter[http://localhost:9080/converter^]
-
-
 
 // =================================================================================================
 // Getting Started
@@ -52,9 +49,9 @@ Access partial implementation of the application from the `start` folder. This f
 
 2. Assemble the entire application into an EAR file.
 
-3. Test the multi-module application.
+3. Aggregate the entire build.
 
-4. Aggregate the entire build.
+4. Test the multi-module application.
 
 
 // =================================================================================================
@@ -123,7 +120,7 @@ Set the [hotspot=7-11 file=0]`basic configuration` for the project and set the [
 
 The [hotspot=16-21 file=0]`Java library module` and the [hotspot=22-27 file=0]`web module` were added as dependencies. Specify [hotspot=26 file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
-The definition and configuration of the [hotspot=38-58 file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=44-48 file=0]`<jarModule>` and [hotspot=49-55 file=0]`<webModule>` modules to be packaged into the EAR file.
+The definition and configuration of the [hotspot=38-58 file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=44-48 file=0]`<jarModule/>` and [hotspot=49-55 file=0]`<webModule/>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 To download and start an Open Liberty server, use the [hotspot=61-90 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
@@ -142,20 +139,83 @@ include::finish/ear/src/main/liberty/config/server.xml[tags=**]
 ----
 
 // =================================================================================================
+// Aggregating the entire build
+// =================================================================================================
+
+== Aggregating the entire build
+
+Because you have multiple modules, aggregate the Maven projects to simplify the build process.
+
+Create a parent `pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
+
+[role="code_command hotspot", subs="quotes"]
+----
+#Replace the start/POM file.#
+`pom.xml`
+----
+start/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/pom.xml[tags=**]
+----
+Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging/>` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId/>` ID, which the child `pom.xml` files will inherit.
+
+In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules/>` that you want to aggregate for the application.
+
+Lastly,
+
+[role="code_command hotspot", subs="quotes"]
+----
+#Update the `pom.xml` in the child module `jar`, `war` and `ear` projects.#
+`jar/pom.xml`
+`war/pom.xml`
+`ear/pom.xml`
+----
+
+[role="edit_command_text"]
+Add a [hotspot=1-5 file=1]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
+such as the [hotspot=9-13 file=2]`jar`, [hotspot=14-19 file=3]`war`, and [hotspot=13-17 file=4]`ear` projects.
+
+pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/ear/pom.xml[tags=parent]
+----
+
+jar/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/jar/pom.xml[tags=**]
+----
+
+war/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/war/pom.xml[tags=**]
+----
+
+ear/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/ear/pom.xml[tags=**]
+----
+
+// =================================================================================================
 // Building the modules
 // =================================================================================================
 
 == Building the modules
 
-To build the three modules, run the following commands from the `jar` directory, `war` directory, and `ear` directory in that order. Start with the `jar` directory, proceed to the `war` directory, and end with the `ear` directory.
+This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
+
+By aggregating the build in the previous section, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. Use the following command to build the entire application from the `start` directory:
 
 [role=command]
 ----
 mvn install
 ----
 
-These commands create a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
-
+Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding module directory.
 
 // =================================================================================================
 // Starting the application
@@ -191,7 +251,7 @@ To test the multi-module application, add integration tests to the EAR project.
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the `Test` class.#
-`start/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
+`ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
 ----
 Test.java
 [source, Java, linenums, role='code_column']
@@ -229,68 +289,6 @@ Results :
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 
 ----
-
-
-// =================================================================================================
-// Aggregating the entire build
-// =================================================================================================
-
-== Aggregating the entire build
-
-Because you have multiple modules, aggregate the Maven projects to simplify the build process.
-
-Create a parent `pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
-
-[role="code_command hotspot", subs="quotes"]
-----
-#Replace the start/POM file.#
-`start/pom.xml`
-----
-start/pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/pom.xml[tags=**]
-----
-Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging/>` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId/>` ID, which the child `pom.xml` files will inherit.
-
-In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules/>` that you want to aggregate for the application.
-
-Lastly,
-
-[role="code_command hotspot", subs="quotes"]
-----
-#Update the `pom.xml` in the child module `jar`, `war` and `ear` projects.#
-`jar/pom.xml`
-`war/pom.xml`
-`ear/pom.xml`
-----
-
-[role="edit_command_text"]
-Add a [hotspot=1-5]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
-such as the `jar`, `war`, and `ear` projects.
-
-pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/ear/pom.xml[tags=parent]
-----
-
-
-// =================================================================================================
-// Building the application
-// =================================================================================================
-
-== Building the application
-
-Use the following command to build the entire application from the `start` directory:
-
-[role=command]
-----
-mvn install
-----
-
-You no longer need to execute multiple `mvn install` commands from different directories. With a single command, you can build and test the whole application and all of the modules.
-
 
 // =================================================================================================
 // Congratulations! You're done!
