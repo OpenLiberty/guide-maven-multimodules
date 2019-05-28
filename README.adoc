@@ -125,7 +125,7 @@ To customize the context root of the application, set the appropriate contextRoo
 
 To download and start an Open Liberty server, use the [hotspot=61-90 file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
-To deploy the EAR application, you need to congiure a server.
+To deploy the EAR application, you need to configure a server.
 
 [role="code_command hotspot", subs="quotes"]
 ----
