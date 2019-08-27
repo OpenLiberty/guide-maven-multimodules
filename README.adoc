@@ -135,7 +135,7 @@ To deploy the EAR application, you need to configure a server.
 server.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/ear/src/main/liberty/config/server.xml[tags=**]
+include::finish/ear/src/main/liberty/config/server.xml[tags=**!parent]
 ----
 
 // =================================================================================================
