@@ -259,9 +259,9 @@ Test.java
 include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[tags=**;!copyright]
 ----
 
-The [hotspot=17-23 file=0]`testIndexPage` tests to check that you can access the landing page.
+The [hotspot=16-22 file=0]`testIndexPage` tests to check that you can access the landing page.
 
-The [hotspot=26-31 file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
+The [hotspot=25-30 file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
 For a Maven EAR project, the [hotspot=100-102 file=1]`testCompile` goal is specified for the [hotspot=93-105 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
