@@ -80,7 +80,7 @@ The [hotspot=30-34 file=0]`<dependency/>` element is the Java library module tha
 
 With this dependency, you can use any functions included in the library in the [hotspot file=1]`HeightsBean.java` file of the web module.
 
-[role="code_command hotspot", subs="quotes"]
+[role="code_command hotspot file=1", subs="quotes"]
 ----
 #Replace the `HeightsBean` class.#
 `war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
@@ -127,7 +127,7 @@ To download and start an Open Liberty server, use the [hotspot=61-90 file=0]`lib
 
 To deploy the EAR application, you need to configure a server.
 
-[role="code_command hotspot", subs="quotes"]
+[role="code_command hotspot file=1", subs="quotes"]
 ----
 #Create the server configuration file.#
 `ear/src/main/liberty/config/server.xml`
