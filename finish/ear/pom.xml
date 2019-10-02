@@ -4,18 +4,20 @@
          xsi:schemaLocation=
          "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <!-- tag::packaging[] -->
+  <!-- tag::basic-config[] -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.openliberty.guides</groupId>
   <artifactId>io.openliberty.guides.multimodules.ear</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <!-- tag::packaging[] -->
   <packaging>ear</packaging>
   <!-- end::packaging[] -->
+  <!-- end::basic-config[]-->
 
   <!-- tag::parent[] -->
   <parent>
     <groupId>io.openliberty.guides</groupId>
-    <artifactId>io.openliberty.guides.multimodules.modules</artifactId>
+    <artifactId>guide-maven-multimodules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <!-- end::parent[] -->
@@ -23,18 +25,24 @@
   <dependencies>
     <!-- web and jar modules as dependencies -->
     <!-- tag::dependencies[] -->
+    <!-- tag::java-library-module[] -->
     <dependency>
       <groupId>io.openliberty.guides</groupId>
       <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <type>jar</type>
     </dependency>
+    <!-- end::java-library-module[] -->
+    <!-- tag::web-module[] -->
     <dependency>
       <groupId>io.openliberty.guides</groupId>
       <artifactId>io.openliberty.guides.multimodules.war</artifactId>
       <version>0.0.1-SNAPSHOT</version>
+      <!-- tag::type-war[] -->
       <type>war</type>
+      <!-- end::type-war[] -->
     </dependency>
+    <!-- end::web-module[] -->
     <!-- end::dependencies[] -->
     <dependency>
       <groupId>junit</groupId>
@@ -46,18 +54,21 @@
 
   <build>
     <plugins>
-      <!-- tag::build[] -->
+      <!-- tag::maven-ear-plugin[] -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-ear-plugin</artifactId>
         <version>3.0.1</version>
         <configuration>
           <modules>
+            <!-- tag::jar-module[] -->
             <jarModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
               <uri>/io.openliberty.guides.multimodules.jar-0.0.1-SNAPSHOT.jar</uri>
             </jarModule>
+            <!-- end::jar-module[] -->
+            <!-- tag::web-module[] -->
             <webModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.war</artifactId>
@@ -65,12 +76,14 @@
               <!-- Set custom context root -->
               <contextRoot>/converter</contextRoot>
             </webModule>
+            <!-- end::web-module[] -->
           </modules>
         </configuration>
       </plugin>
-      <!-- end::build[] -->
+      <!-- end::maven-ear-plugin[] -->
 
       <!-- Enable liberty-maven plugin -->
+      <!-- tag::liberty-maven-plugin[] -->
       <plugin>
         <groupId>net.wasdev.wlp.maven.plugins</groupId>
         <artifactId>liberty-maven-plugin</artifactId>
@@ -101,9 +114,9 @@
           </execution>
         </executions>
       </plugin>
-
+      <!-- end::liberty-maven-plugin[] -->
       <!-- Since the package type is ear, need to run testCompile to compile the tests -->
-      <!-- tag::test-compile[] -->
+      <!-- tag::maven-compiler-plugin[] -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -111,13 +124,15 @@
         <executions>
           <execution>
             <phase>test-compile</phase>
+            <!-- tag::test-compile[] -->
             <goals>
               <goal>testCompile</goal>
             </goals>
+            <!-- end::test-compile[] -->
           </execution>
         </executions>
       </plugin>
-      <!-- end::test-compile[] -->
+      <!-- end::maven-compiler-plugin[] -->
 
       <!-- Plugin to run integration tests -->
       <plugin>

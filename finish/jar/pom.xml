@@ -9,7 +9,7 @@
   <!-- tag::parent[] -->
   <parent>
     <groupId>io.openliberty.guides</groupId>
-    <artifactId>io.openliberty.guides.multimodules.modules</artifactId>
+    <artifactId>guide-maven-multimodules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <!-- end::parent[] -->
