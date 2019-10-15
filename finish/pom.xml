@@ -8,7 +8,7 @@
         <!-- tag::groupID[] -->
         <groupId>net.wasdev.wlp.maven.parent</groupId>
         <!-- end::groupID[] -->
-        <artifactId>liberty-maven-app-parent</artifactId>
+        <artifactId>guide-maven-multimodules</artifactId>
         <version>RELEASE</version>
     </parent>
     <!-- end::Parent[]-->
@@ -16,7 +16,7 @@
     <!-- tag::basic-config[] -->
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.openliberty.guides</groupId>
-    <artifactId>guide-maven-multimodules</artifactId>
+    <artifactId>io.openliberty.guides.multimodules.modules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <!-- tag::packaging[] -->
     <packaging>pom</packaging>
