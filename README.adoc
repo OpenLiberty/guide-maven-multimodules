@@ -173,7 +173,7 @@ Lastly,
 ----
 
 [role="edit_command_text"]
-Add a [hotspot=Parent file=1]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
+Add a [hotspot=parent file=1]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
 such as the [hotspot=parent-jar file=2]`jar`, [hotspot=parent-war file=3]`war`, and [hotspot=parent-ear file=4]`ear` projects.
 
 pom.xml

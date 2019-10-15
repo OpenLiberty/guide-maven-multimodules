@@ -3,20 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation=
          "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- tag::Parent[] -->
+    <!-- tag::parent[] -->
     <parent>
         <!-- tag::groupID[] -->
         <groupId>net.wasdev.wlp.maven.parent</groupId>
         <!-- end::groupID[] -->
-        <artifactId>guide-maven-multimodules</artifactId>
+        <artifactId>liberty-maven-app-parent</artifactId>
         <version>RELEASE</version>
     </parent>
-    <!-- end::Parent[]-->
+    <!-- end::parent[]-->
     
     <!-- tag::basic-config[] -->
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.openliberty.guides</groupId>
-    <artifactId>io.openliberty.guides.multimodules.modules</artifactId>
+    <artifactId>guide-maven-multimodules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <!-- tag::packaging[] -->
     <packaging>pom</packaging>
