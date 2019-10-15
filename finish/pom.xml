@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation=
          "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- tag::parent[] -->
+    <!-- tag::Parent[] -->
     <parent>
         <!-- tag::groupID[] -->
         <groupId>net.wasdev.wlp.maven.parent</groupId>
@@ -11,7 +11,7 @@
         <artifactId>liberty-maven-app-parent</artifactId>
         <version>RELEASE</version>
     </parent>
-    <!-- end::parent[]-->
+    <!-- end::Parent[]-->
     
     <!-- tag::basic-config[] -->
     <modelVersion>4.0.0</modelVersion>

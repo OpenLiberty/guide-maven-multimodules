@@ -42,7 +42,7 @@
       <type>war</type>
       <!-- end::type-war[] -->
     </dependency>
-    <!-- end::Web-module[] -->
+    <!-- end::web-module[] -->
     <!-- end::dependencies[] -->
     <dependency>
       <groupId>junit</groupId>
