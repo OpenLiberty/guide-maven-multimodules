@@ -120,7 +120,7 @@ Set the [hotspot=basic-config file=0]`basic configuration` for the project and s
 
 The [hotspot=java-library-module file=0]`Java library module` and the [hotspot=web-module file=0]`web module` were added as dependencies. Specify [hotspot=type-war file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
-The definition and configuration of the [hotspot=build file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jar-module file=0]`<jarModule/>` and [hotspot=web-module file=0]`<webModule/>` modules to be packaged into the EAR file.
+The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jar-module file=0]`<jarModule/>` and [hotspot=webModule file=0]`<webModule/>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 To download and start an Open Liberty server, use the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
@@ -173,8 +173,8 @@ Lastly,
 ----
 
 [role="edit_command_text"]
-Add a [hotspot=1-5 file=1]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
-such as the [hotspot=9-13 file=2]`jar`, [hotspot=14-19 file=3]`war`, and [hotspot=13-17 file=4]`ear` projects.
+Add a [hotspot=parent file=1]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
+such as the [hotspot=parent-jar file=2]`jar`, [hotspot=parent-war file=3]`war`, and [hotspot=parent-ear file=4]`ear` projects.
 
 pom.xml
 [source, xml, linenums, role='code_column hide_tags=parent']

@@ -14,13 +14,13 @@
   <!-- end::packaging[] -->
   <!-- end::basic-config[]-->
 
-  <!-- tag::parent[] -->
+  <!-- tag::parent-ear[] -->
   <parent>
     <groupId>io.openliberty.guides</groupId>
     <artifactId>guide-maven-multimodules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <!-- end::parent[] -->
+  <!-- end::parent-ear[] -->
 
   <dependencies>
     <!-- web and jar modules as dependencies -->
@@ -42,7 +42,7 @@
       <type>war</type>
       <!-- end::type-war[] -->
     </dependency>
-    <!-- end::web-module[] -->
+    <!-- end::Web-module[] -->
     <!-- end::dependencies[] -->
     <dependency>
       <groupId>junit</groupId>
@@ -68,7 +68,7 @@
               <uri>/io.openliberty.guides.multimodules.jar-0.0.1-SNAPSHOT.jar</uri>
             </jarModule>
             <!-- end::jar-module[] -->
-            <!-- tag::web-module[] -->
+            <!-- tag::webModule[] -->
             <webModule>
               <groupId>io.openliberty.guides</groupId>
               <artifactId>io.openliberty.guides.multimodules.war</artifactId>
@@ -76,7 +76,7 @@
               <!-- Set custom context root -->
               <contextRoot>/converter</contextRoot>
             </webModule>
-            <!-- end::web-module[] -->
+            <!-- end::webModule[] -->
           </modules>
         </configuration>
       </plugin>

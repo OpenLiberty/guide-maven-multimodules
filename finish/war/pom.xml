@@ -11,14 +11,14 @@
   <name>io.openliberty.guides.multimodules.war</name>
   <url>http://maven.apache.org</url>
 
-  <!-- tag::parent[] -->
+  <!-- tag::parent-war[] -->
   <parent>
     <groupId>io.openliberty.guides</groupId>
     <artifactId>guide-maven-multimodules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <!-- end::parent[] -->
+  <!-- end::parent-war[] -->
 
   <dependencies>
     <dependency>

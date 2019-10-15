@@ -24,8 +24,8 @@ public class Test {
   String war = "converter";
   String urlBase = "http://localhost:" + port + "/" + war + "/";
 
-  // tag::testIndexPage[]
   @org.junit.Test
+  // tag::testIndexPage[]
   public void testIndexPage() throws Exception {
     String url = this.urlBase;
     HttpURLConnection con = testRequestHelper(url, "GET");
@@ -35,8 +35,8 @@ public class Test {
   }
   // end::testIndexPage[]
 
-  // tag::testHeightsPage[]
   @org.junit.Test
+  // tag::testHeightsPage[]
   public void testHeightsPage() throws Exception {
     String url = this.urlBase + "heights.jsp?heightCm=10";
     HttpURLConnection con = testRequestHelper(url, "POST");

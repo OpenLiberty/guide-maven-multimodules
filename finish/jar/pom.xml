@@ -6,12 +6,12 @@
   <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <!-- tag::parent[] -->
+  <!-- tag::parent-jar[] -->
   <parent>
     <groupId>io.openliberty.guides</groupId>
     <artifactId>guide-maven-multimodules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <!-- end::parent[] -->
+  <!-- end::parent-jar[] -->
 
 </project>
