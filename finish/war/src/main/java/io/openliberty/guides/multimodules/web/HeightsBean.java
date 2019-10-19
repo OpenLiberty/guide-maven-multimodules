@@ -52,6 +52,7 @@ public class HeightsBean implements java.io.Serializable {
     this.heightFeet = result;
   }
   // end::setHeightFeet[]
+  
   // tag::setHeightInches[]
   public void setHeightInches(String heightinches) {
     this.cm = Integer.valueOf(heightCm);

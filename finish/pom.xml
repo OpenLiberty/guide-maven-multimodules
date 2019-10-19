@@ -5,9 +5,7 @@
          "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <!-- tag::parent[] -->
     <parent>
-        <!-- tag::groupID[] -->
         <groupId>net.wasdev.wlp.maven.parent</groupId>
-        <!-- end::groupID[] -->
         <artifactId>liberty-maven-app-parent</artifactId>
         <version>RELEASE</version>
     </parent>
@@ -15,7 +13,9 @@
     
     <!-- tag::basic-config[] -->
     <modelVersion>4.0.0</modelVersion>
+    <!-- tag::groupID[] -->
     <groupId>io.openliberty.guides</groupId>
+    <!-- end::groupID[] -->
     <artifactId>guide-maven-multimodules</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <!-- tag::packaging[] -->
