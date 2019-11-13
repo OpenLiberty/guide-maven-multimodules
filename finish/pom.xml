@@ -1,15 +1,17 @@
+<!-- tag::parent[] -->
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation=
          "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- tag::parent[] -->
+<!-- end::parent[]-->
+    <!-- tag::config[] -->
     <parent>
         <groupId>net.wasdev.wlp.maven.parent</groupId>
         <artifactId>liberty-maven-app-parent</artifactId>
         <version>RELEASE</version>
     </parent>
-    <!-- end::parent[]-->
+    <!-- end::config[]-->
     
     <!-- tag::basic-config[] -->
     <modelVersion>4.0.0</modelVersion>
