@@ -19,8 +19,8 @@ import java.net.URL;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Test {
-  String port = System.getProperty("liberty.test.port");
+public class IT {
+  String port = System.getProperty("default.http.port");
   String war = "converter";
   String urlBase = "http://localhost:" + port + "/" + war + "/";
 
