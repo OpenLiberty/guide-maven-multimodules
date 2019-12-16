@@ -4,8 +4,9 @@
          xsi:schemaLocation=
          "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <!-- tag::packaging[] -->
   <modelVersion>4.0.0</modelVersion>
+
+  <!-- tag::packaging[] -->
   <groupId>io.openliberty.guides</groupId>
   <artifactId>guides-maven-multimodules-ear</artifactId>
   <version>1.0-SNAPSHOT</version>
@@ -36,7 +37,6 @@
       <liberty.var.default.http.port>9080</liberty.var.default.http.port>
       <liberty.var.default.https.port>9443</liberty.var.default.https.port>
   </properties>
-
 
   <dependencies>
     <!-- web and jar modules as dependencies -->

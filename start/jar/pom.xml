@@ -3,11 +3,17 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.openliberty.guides</groupId>
-  <artifactId>io.openliberty.guides.multimodules.jar</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>guides-maven-multimodules-jar</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
   <!-- tag::parent[] -->
   <!-- TO-DO: ADD THE PARENT CONFIGURATION HERE -->
   <!-- end::parent[] -->
 
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 </project>
