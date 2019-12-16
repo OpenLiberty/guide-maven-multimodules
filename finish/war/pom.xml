@@ -81,4 +81,18 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <!-- Enable liberty-maven plugin to run development mode -->
+      <!-- tag::liberty-maven-plugin[] -->
+      <plugin>
+        <groupId>io.openliberty.tools</groupId>
+        <artifactId>liberty-maven-plugin</artifactId>
+        <version>${version.liberty-maven-plugin}</version>
+      </plugin>
+      <!-- end::liberty-maven-plugin[] -->
+    </plugins>
+  </build>
+
 </project>

@@ -72,9 +72,9 @@ Navigate to the `start` directory to begin.
 `war/pom.xml`
 ----
 war/pom.xml
-[source, xml, linenums, role='code_column']
+[source, xml, linenums, role='code_column hide_tags=parent']
 ----
-include::finish/war/pom.xml[tags=**;!parent]
+include::finish/war/pom.xml[]
 ----
 The [hotspot=dependency file=0]`<dependency/>` element is the Java library module that implements the functions that you need for the unit converter.
 
@@ -111,9 +111,9 @@ Navigate to the `ear` folder and find a template `pom.xml` file.
 `ear/pom.xml`
 ----
 ear/pom.xml
-[source, xml, linenums, role='code_column']
+[source, xml, linenums, role='code_column hide_tags=parent']
 ----
-include::finish/ear/pom.xml[tags=**;!parent]
+include::finish/ear/pom.xml[]
 ----
 
 Set the [hotspot=packaging file=0]`basic configuration` for the project and set the [hotspot=packagingType file=0]`<packaging/>` element to `ear`.
@@ -135,7 +135,7 @@ To deploy the EAR application, you need to configure a server.
 server.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/ear/src/main/liberty/config/server.xml[tags=**]
+include::finish/ear/src/main/liberty/config/server.xml[]
 ----
 
 // =================================================================================================
@@ -156,7 +156,7 @@ Create a parent `pom.xml` file under the `start` directory to link all of the ch
 start/pom.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/pom.xml[tags=**]
+include::finish/pom.xml[]
 ----
 Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging/>` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId/>` ID, which the child `pom.xml` files will inherit.
 
@@ -185,19 +185,19 @@ include::finish/ear/pom.xml[tags=parent]
 jar/pom.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/jar/pom.xml[tags=**]
+include::finish/jar/pom.xml[]
 ----
 
 war/pom.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/war/pom.xml[tags=**]
+include::finish/war/pom.xml[]
 ----
 
 ear/pom.xml
 [source, xml, linenums, role='code_column']
 ----
-include::finish/ear/pom.xml[tags=**]
+include::finish/ear/pom.xml[]
 ----
 
 // =================================================================================================
@@ -254,9 +254,9 @@ To test the multi-module application, add integration tests to the EAR project.
 `ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
 ----
 Test.java
-[source, Java, linenums, role='code_column']
+[source, Java, linenums, role='code_column hide_tags=copyright']
 ----
-include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[tags=**;!copyright]
+include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[]
 ----
 
 The [hotspot=16-22 file=0]`testIndexPage` tests to check that you can access the landing page.
@@ -266,9 +266,9 @@ The [hotspot=25-30 file=0]`testHeightsPage` tests to check that the application 
 For a Maven EAR project, the [hotspot=100-102 file=1]`testCompile` goal is specified for the [hotspot=93-105 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
 ear/pom.xml
-[source, xml, linenums, role='code_column']
+[source, xml, linenums, role='code_column hide_tags=parent']
 ----
-include::finish/ear/pom.xml[tags=**;!parent]
+include::finish/ear/pom.xml[]
 ----
 
 Enter the following command to run the test from the `start/ear` directory:

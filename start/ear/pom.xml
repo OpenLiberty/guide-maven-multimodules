@@ -7,7 +7,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <!-- tag::packaging[] -->
-  <!-- TO-DO: ADD THE PACKAGING CONFIGURATION HERE -->
+  <groupId>io.openliberty.guides</groupId>
+  <artifactId>guides-maven-multimodules-ear</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>ear</packaging>
   <!-- end::packaging[] -->
 
   <!-- tag::parent[] -->
