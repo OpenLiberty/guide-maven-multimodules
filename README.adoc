@@ -72,7 +72,7 @@ Navigate to the `start` directory to begin.
 `war/pom.xml`
 ----
 war/pom.xml
-[source, xml, linenums, role='code_column hide_tags=parent']
+[source, xml, linenums, role='code_column']
 ----
 include::finish/war/pom.xml[]
 ----
@@ -111,7 +111,7 @@ Navigate to the `ear` folder and find a template `pom.xml` file.
 `ear/pom.xml`
 ----
 ear/pom.xml
-[source, xml, linenums, role='code_column hide_tags=parent']
+[source, xml, linenums, role='code_column']
 ----
 include::finish/ear/pom.xml[]
 ----
@@ -212,12 +212,12 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start` directory.
+Navigate to the `start\ear` directory.
 
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the integration test class.#
-`ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
+`src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
 IT.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
@@ -229,7 +229,12 @@ The [hotspot=testIndexPage file=0]`testIndexPage` tests to check that you can ac
 
 The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
-For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
+For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution. Run the following command:
+
+[role=command]
+----
+mvn test-compile
+----
 
 ear/pom.xml
 [source, xml, linenums, role='code_column']
@@ -237,13 +242,11 @@ ear/pom.xml
 include::finish/ear/pom.xml[]
 ----
 
-Enter the following command to start the server, run the test from the `start/ear` directory, then stop the server:
+Enter the following command to start the server, run the test, then stop the server:
 
 [role=command]
 ----
-mvn liberty:start
-mvn failsafe:integration-test
-mvn liberty:stop
+mvn liberty:start failsafe:integration-test liberty:stop
 ----
 
 [source, role="no_copy"]

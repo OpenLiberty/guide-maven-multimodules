@@ -12,12 +12,15 @@
 // end::copyright[]
 package it.io.openliberty.guides.multimodules;
 
-import static org.junit.Assert.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.junit.jupiter.api.Test;
 
 public class IT {
   String port = System.getProperty("default.http.port");
@@ -25,23 +28,21 @@ public class IT {
   String urlBase = "http://localhost:" + port + "/" + war + "/";
 
   // tag::testIndexPage[]
-  @org.junit.Test
+  @Test
   public void testIndexPage() throws Exception {
     String url = this.urlBase;
     HttpURLConnection con = testRequestHelper(url, "GET");
-    assertEquals("Incorrect response code from " + url, 200, con.getResponseCode());
-    assertTrue("Incorrect response from " + url,
-        testBufferHelper(con).contains("Enter the height in centimeters"));
+    assertEquals(200, con.getResponseCode(), "Incorrect response code from " + url);
+    assertTrue(testBufferHelper(con).contains("Enter the height in centimeters"), "Incorrect response from " + url);
   }
   // end::testIndexPage[]
 
   // tag::testHeightsPage[]
-  @org.junit.Test
+  @Test
   public void testHeightsPage() throws Exception {
     String url = this.urlBase + "heights.jsp?heightCm=10";
     HttpURLConnection con = testRequestHelper(url, "POST");
-    assertTrue("Incorrect response from " + url,
-        testBufferHelper(con).contains("3    inches"));
+    assertTrue(testBufferHelper(con).contains("3    inches"), "Incorrect response from " + url);
   }
   // end::testHeightsPage[]
 

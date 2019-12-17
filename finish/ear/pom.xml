@@ -25,6 +25,7 @@
       <version.liberty-maven-plugin>3.1</version.liberty-maven-plugin>
       <version.maven-failsafe-plugin>2.22.2</version.maven-failsafe-plugin>
       <version.maven-ear-plugin>3.0.2</version.maven-ear-plugin>
+      <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
       <!-- Liberty configuration -->
       <liberty.var.default.http.port>9080</liberty.var.default.http.port>
       <liberty.var.default.https.port>9443</liberty.var.default.https.port>
@@ -55,9 +56,9 @@
 
     <!-- For tests -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.5.2</version>
       <scope>test</scope>
     </dependency>
 
@@ -66,24 +67,6 @@
         <groupId>javax.xml.bind</groupId>
         <artifactId>jaxb-api</artifactId>
         <version>2.3.1</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>com.sun.xml.bind</groupId>
-        <artifactId>jaxb-core</artifactId>
-        <version>2.3.0.1</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>com.sun.xml.bind</groupId>
-        <artifactId>jaxb-impl</artifactId>
-        <version>2.3.2</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>javax.activation</groupId>
-        <artifactId>activation</artifactId>
-        <version>1.1.1</version>
         <scope>test</scope>
     </dependency>
   </dependencies>
@@ -133,7 +116,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
+        <version>${version.maven-compiler-plugin}</version>
         <executions>
           <execution>
             <phase>test-compile</phase>
