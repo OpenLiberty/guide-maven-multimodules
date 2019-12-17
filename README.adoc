@@ -91,9 +91,9 @@ HeightsBean.java
 include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[tags=**;!copyright]
 ----
 
-The [hotspot=35 file=1]`getFeet(cm)` was added to the [hotspot=33-38 file=1]`setHeightFeet` method to convert a measurement into feet.
+The [hotspot=getFeet file=1]`getFeet(cm)` was added to the [hotspot=setHeightFeet file=1]`setHeightFeet` method to convert a measurement into feet.
 
-The [hotspot=42 file=1]`getInches(cm)` was added to the [hotspot=40-45 file=1]`setHeightInches` method to convert a measurement into inches.
+The [hotspot=getInches file=1]`getInches(cm)` was added to the [hotspot=setHeightInches file=1]`setHeightInches` method to convert a measurement into inches.
 
 
 // =================================================================================================
