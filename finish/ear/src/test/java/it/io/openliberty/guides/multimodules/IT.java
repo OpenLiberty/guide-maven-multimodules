@@ -23,46 +23,50 @@ import java.net.URL;
 import org.junit.jupiter.api.Test;
 
 public class IT {
-  String port = System.getProperty("default.http.port");
-  String war = "converter";
-  String urlBase = "http://localhost:" + port + "/" + war + "/";
+    String port = System.getProperty("default.http.port");
+    String war = "converter";
+    String urlBase = "http://localhost:" + port + "/" + war + "/";
 
-  // tag::testIndexPage[]
-  @Test
-  public void testIndexPage() throws Exception {
-    String url = this.urlBase;
-    HttpURLConnection con = testRequestHelper(url, "GET");
-    assertEquals(200, con.getResponseCode(), "Incorrect response code from " + url);
-    assertTrue(testBufferHelper(con).contains("Enter the height in centimeters"), "Incorrect response from " + url);
-  }
-  // end::testIndexPage[]
-
-  // tag::testHeightsPage[]
-  @Test
-  public void testHeightsPage() throws Exception {
-    String url = this.urlBase + "heights.jsp?heightCm=10";
-    HttpURLConnection con = testRequestHelper(url, "POST");
-    assertTrue(testBufferHelper(con).contains("3    inches"), "Incorrect response from " + url);
-  }
-  // end::testHeightsPage[]
-
-  private HttpURLConnection testRequestHelper(String url, String method) throws Exception {
-    URL obj = new URL(url);
-    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-    // optional default is GET
-    con.setRequestMethod(method);
-    return con;
-  }
-
-  private String testBufferHelper(HttpURLConnection con) throws Exception {
-    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-    String inputLine;
-    StringBuffer response = new StringBuffer();
-    while ((inputLine = in.readLine()) != null) {
-      response.append(inputLine);
+    // tag::testIndexPage[]
+    @Test
+    public void testIndexPage() throws Exception {
+        String url = this.urlBase;
+        HttpURLConnection con = testRequestHelper(url, "GET");
+        assertEquals(200, con.getResponseCode(), "Incorrect response code from " + url);
+        assertTrue(testBufferHelper(con).contains("Enter the height in centimeters"),
+                        "Incorrect response from " + url);
     }
-    in.close();
-    return response.toString();
-  }
+    // end::testIndexPage[]
+
+    // tag::testHeightsPage[]
+    @Test
+    public void testHeightsPage() throws Exception {
+        String url = this.urlBase + "heights.jsp?heightCm=10";
+        HttpURLConnection con = testRequestHelper(url, "POST");
+        assertTrue(testBufferHelper(con).contains("3    inches"),
+                        "Incorrect response from " + url);
+    }
+    // end::testHeightsPage[]
+
+    private HttpURLConnection testRequestHelper(String url, String method)
+                    throws Exception {
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        // optional default is GET
+        con.setRequestMethod(method);
+        return con;
+    }
+
+    private String testBufferHelper(HttpURLConnection con) throws Exception {
+        BufferedReader in = new BufferedReader(
+                        new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+        return response.toString();
+    }
 
 }
