@@ -13,15 +13,6 @@
   <name>guides-maven-multimodules-war</name>
   <url>http://maven.apache.org</url>
 
-  <!-- tag::parent[] -->
-  <parent>
-    <groupId>io.openliberty.guides</groupId>
-    <artifactId>guides-maven-multimodules</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
-  </parent>
-  <!-- end::parent[] -->
-
   <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -80,19 +71,5 @@
         <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <build>
-    <finalName>${project.artifactId}</finalName>
-    <plugins>
-      <!-- Enable liberty-maven plugin to run development mode -->
-      <!-- tag::liberty-maven-plugin[] -->
-      <plugin>
-        <groupId>io.openliberty.tools</groupId>
-        <artifactId>liberty-maven-plugin</artifactId>
-        <version>${version.liberty-maven-plugin}</version>
-      </plugin>
-      <!-- end::liberty-maven-plugin[] -->
-    </plugins>
-  </build>
 
 </project>

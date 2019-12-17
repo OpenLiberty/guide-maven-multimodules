@@ -12,10 +12,6 @@
   <name>guides-maven-multimodules-war</name>
   <url>http://maven.apache.org</url>
 
-  <!-- tag::parent[] -->
-  <!-- TO-DO: ADD THE PARENT CONFIGURATION HERE -->
-  <!-- end::parent[] -->
-
   <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

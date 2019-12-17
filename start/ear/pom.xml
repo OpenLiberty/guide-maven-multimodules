@@ -13,10 +13,6 @@
   <packaging>ear</packaging>
   <!-- end::packaging[] -->
 
-  <!-- tag::parent[] -->
-  <!-- TO-DO: ADD THE PARENT CONFIGURATION HERE -->
-  <!-- end::parent[] -->
-
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -26,8 +22,6 @@
         <!-- Plugin versions -->
         <version.liberty-maven-plugin>3.1</version.liberty-maven-plugin>
         <version.maven-failsafe-plugin>2.22.2</version.maven-failsafe-plugin>
-        <version.maven-war-plugin>3.2.2</version.maven-war-plugin>
-        <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin>
         <version.maven-ear-plugin>3.0.2</version.maven-ear-plugin>
         <!-- Liberty configuration -->
         <liberty.var.default.http.port>9080</liberty.var.default.http.port>

@@ -4,18 +4,16 @@
   <featureManager>
     <feature>jsp-2.3</feature>
   </featureManager>
-  
+
   <variable name="default.http.port" defaultValue="9080"/>
   <variable name="default.https.port" defaultValue="9443"/>
 
   <!-- tag::server[] -->
-  <!-- To access this server from a remote client add a host attribute to the following
-    element, e.g. host="*" -->
   <httpEndpoint host="*" httpPort="${default.http.port}" httpsPort="${default.https.port}"
     id="defaultHttpEndpoint" />
 
   <enterpriseApplication id="guides-maven-multimodules-ear"
-    location="guides-maven-multimodules-ear.ear" 
+    location="guides-maven-multimodules-ear.ear"
     name="guides-maven-multimodules-ear" />
   <!-- end::server[] -->
 </server>

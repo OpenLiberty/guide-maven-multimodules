@@ -158,47 +158,10 @@ start/pom.xml
 ----
 include::finish/pom.xml[]
 ----
-Set the [hotspot=13-17 file=0]`basic configuration` for the project. Set `pom` as the [hotspot=17 file=0]`<packaging/>` element of the parent `pom.xml` file. Specify `io.openliberty.guides` as the [hotspot=14 file=0]`<groupId/>` ID, which the child `pom.xml` files will inherit.
+Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the [hotspot=packagingType file=0]`<packaging/>` element of the parent `pom.xml` file.
 
-In the parent `pom.xml` file, list all of the [hotspot=19-23 file=0]`<modules/>` that you want to aggregate for the application.
+In the parent `pom.xml` file, list all of the [hotspot=modules file=0]`<modules/>` that you want to aggregate for the application.
 
-Lastly,
-
-[role="code_command hotspot", subs="quotes"]
-----
-#Update the `pom.xml` in the child module `jar`, `war` and `ear` projects.#
-`jar/pom.xml`
-`war/pom.xml`
-`ear/pom.xml`
-----
-
-[role="edit_command_text"]
-Add a [hotspot=1-5 file=1]`<parent/>` section just above `basic configuration` to each of the `pom.xml` files in the child modules,
-such as the [hotspot=9-13 file=2]`jar`, [hotspot=14-19 file=3]`war`, and [hotspot=13-17 file=4]`ear` projects.
-
-pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/ear/pom.xml[tags=parent]
-----
-
-jar/pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/jar/pom.xml[]
-----
-
-war/pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/war/pom.xml[]
-----
-
-ear/pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/ear/pom.xml[]
-----
 
 // =================================================================================================
 // Building the modules
@@ -223,16 +186,17 @@ Since the modules are independent, you can re-build them individually by running
 
 == Starting the application
 
-To deploy your EAR application on an Open Liberty server, run the Maven `liberty:start-server` goal from the `ear` directory:
+To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `ear` directory:
 
 [role=command]
 ----
-mvn liberty:start-server
+cd ear
+mvn liberty:run
 ----
 
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 
-To stop the server, enter the following command:
+After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the shell session where you ran the server. Alternatively, you can run the `liberty:stop` goal from the `start\ear` directory in another shell session:
 
 [role=command]
 ----
@@ -248,15 +212,17 @@ mvn liberty:stop-server
 
 To test the multi-module application, add integration tests to the EAR project.
 
+Navigate to the `start` directory.
+
 [role="code_command hotspot", subs="quotes"]
 ----
-#Create the `Test` class.#
-`ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java`
+#Create the integration test class.#
+`ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
-Test.java
+IT.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
 ----
-include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/Test.java[]
+include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java[]
 ----
 
 The [hotspot=16-22 file=0]`testIndexPage` tests to check that you can access the landing page.
@@ -266,23 +232,27 @@ The [hotspot=25-30 file=0]`testHeightsPage` tests to check that the application 
 For a Maven EAR project, the [hotspot=100-102 file=1]`testCompile` goal is specified for the [hotspot=93-105 file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution.
 
 ear/pom.xml
-[source, xml, linenums, role='code_column hide_tags=parent']
+[source, xml, linenums, role='code_column']
 ----
 include::finish/ear/pom.xml[]
 ----
 
-Enter the following command to run the test from the `start/ear` directory:
+Enter the following command to start the server, run the test from the `start/ear` directory, then stop the server:
 
-[role='command']
-include::{common-includes}/mvnverify.adoc[]
+[role=command]
+----
+mvn liberty:start
+mvn failsafe:integration-test
+mvn liberty:stop
+----
 
 [source, role="no_copy"]
 ----
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running it.io.openliberty.guides.multimodules.Test
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.712 sec - in it.io.openliberty.guides.multimodules.Test
+Running it.io.openliberty.guides.multimodules.IT
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.712 sec - in it.io.openliberty.guides.multimodules.IT
 
 Results :
 

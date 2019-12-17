@@ -7,14 +7,6 @@
   <artifactId>guides-maven-multimodules-jar</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <!-- tag::parent[] -->
-  <parent>
-    <groupId>io.openliberty.guides</groupId>
-    <artifactId>guides-maven-multimodules</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-  <!-- end::parent[] -->
-
   <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

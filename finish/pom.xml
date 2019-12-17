@@ -7,10 +7,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- tag::packaging[] -->
+    <!-- tag::groupId[] -->
     <groupId>io.openliberty.guides</groupId>
+    <!-- end::groupId[] -->
     <artifactId>guides-maven-multimodules</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!-- tag::packagingType[] -->
     <packaging>pom</packaging>
+    <!-- end::packagingType[] -->
     <!-- end::packaging[] -->
 
     <!-- tag::modules[] -->
