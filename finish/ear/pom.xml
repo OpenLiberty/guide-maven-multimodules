@@ -129,7 +129,7 @@
       <!-- end::liberty-maven-plugin[] -->
 
       <!-- Since the package type is ear, need to run testCompile to compile the tests -->
-      <!-- tag::test-compile[] -->
+      <!-- tag::maven-compiler-plugin[] -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -137,13 +137,15 @@
         <executions>
           <execution>
             <phase>test-compile</phase>
+            <!-- tag::testCompile[] -->
             <goals>
               <goal>testCompile</goal>
             </goals>
+            <!-- end::testCompile[] -->
           </execution>
         </executions>
       </plugin>
-      <!-- end::test-compile[] -->
+      <!-- end::maven-compiler-plugin[] -->
 
       <!-- Plugin to run integration tests -->
       <plugin>
