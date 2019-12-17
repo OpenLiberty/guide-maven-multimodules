@@ -43,7 +43,7 @@ public class IT {
     public void testHeightsPage() throws Exception {
         String url = this.urlBase + "heights.jsp?heightCm=10";
         HttpURLConnection con = testRequestHelper(url, "POST");
-        assertTrue(testBufferHelper(con).contains("3    inches"),
+        assertTrue(testBufferHelper(con).contains("3        inches"),
                         "Incorrect response from " + url);
     }
     // end::testHeightsPage[]
