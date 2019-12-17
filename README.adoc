@@ -229,7 +229,11 @@ The [hotspot=testIndexPage file=0]`testIndexPage` tests to check that you can ac
 
 The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
-For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin` plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are compiled and picked up for execution. Run the following command:
+For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is
+specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin`
+plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are
+compiled and picked up for execution. Run the following command to compile the
+test class:
 
 [role=command]
 ----
@@ -242,7 +246,7 @@ ear/pom.xml
 include::finish/ear/pom.xml[]
 ----
 
-Enter the following command to start the server, run the test, then stop the server:
+Then, enter the following command to start the server, run the tests, then stop the server:
 
 [role=command]
 ----

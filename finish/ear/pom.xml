@@ -110,7 +110,8 @@
             </plugin>
             <!-- end::liberty-maven-plugin[] -->
 
-            <!-- Since the package type is ear, need to run testCompile to compile the tests -->
+            <!-- Since the package type is ear, 
+            need to run testCompile to compile the tests -->
             <!-- tag::maven-compiler-plugin[] -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -136,8 +137,12 @@
                 <version>${version.maven-failsafe-plugin}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <default.http.port>${liberty.var.default.http.port}</default.http.port>
-                        <default.https.port>${liberty.var.default.https.port}</default.https.port>
+                        <default.http.port>
+                            ${liberty.var.default.http.port}
+                        </default.http.port>
+                        <default.https.port>
+                            ${liberty.var.default.https.port}
+                        </default.https.port>
                         <cf.context.root>/converter</cf.context.root>
                     </systemPropertyVariables>
                 </configuration>
