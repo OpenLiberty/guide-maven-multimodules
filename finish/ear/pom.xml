@@ -94,7 +94,9 @@
                             <artifactId>guides-maven-multimodules-war</artifactId>
                             <uri>/guides-maven-multimodules-war-1.0-SNAPSHOT.war</uri>
                             <!-- Set custom context root -->
+                            <!-- tag::contextRoot[] -->
                             <contextRoot>/converter</contextRoot>
+                            <!-- end::contextRoot[] -->
                         </webModule>
                         <!-- end::webModule[] -->
                     </modules>

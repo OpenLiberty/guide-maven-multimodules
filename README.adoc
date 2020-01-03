@@ -91,9 +91,9 @@ HeightsBean.java
 include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[]
 ----
 
-The [hotspot=getFeet file=1]`getFeet(cm)` was added to the [hotspot=setHeightFeet file=1]`setHeightFeet` method to convert a measurement into feet.
+The [hotspot=getFeet file=1]`getFeet(cm)` invocation was added to the [hotspot=setHeightFeet file=1]`setHeightFeet` method to convert a measurement into feet.
 
-The [hotspot=getInches file=1]`getInches(cm)` was added to the [hotspot=setHeightInches file=1]`setHeightInches` method to convert a measurement into inches.
+The [hotspot=getInches file=1]`getInches(cm)` invocation was added to the [hotspot=setHeightInches file=1]`setHeightInches` method to convert a measurement into inches.
 
 
 // =================================================================================================
@@ -121,7 +121,7 @@ Set the [hotspot=packaging file=0]`basic configuration` for the project and set 
 The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify [hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
 
 The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`<jarModule/>` and [hotspot=webModule file=0]`<webModule/>` modules to be packaged into the EAR file.
-To customize the context root of the application, set the appropriate contextRoot in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
+To customize the context root of the application, set the [hotspot=contextRoot file=0]`<contextRoot>/converter</contextRoot>` element in the webModule. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 To download and start an Open Liberty server, use the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
@@ -146,7 +146,7 @@ include::finish/ear/src/main/liberty/config/server.xml[]
 
 Because you have multiple modules, aggregate the Maven projects to simplify the build process.
 
-Create a parent `pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
+Create a parent [hotspot]`pom.xml` file under the `start` directory to link all of the child modules together. A template is provided for you.
 
 [role="code_command hotspot", subs="quotes"]
 ----
@@ -158,9 +158,9 @@ start/pom.xml
 ----
 include::finish/pom.xml[]
 ----
-Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the [hotspot=packagingType file=0]`<packaging/>` element of the parent `pom.xml` file.
+Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the [hotspot=packagingType file=0]`<packaging/>` element of the parent [hotspot]`pom.xml` file.
 
-In the parent `pom.xml` file, list all of the [hotspot=modules file=0]`<modules/>` that you want to aggregate for the application.
+In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`<modules/>` that you want to aggregate for the application.
 
 
 // =================================================================================================
@@ -169,9 +169,9 @@ In the parent `pom.xml` file, list all of the [hotspot=modules file=0]`<modules/
 
 == Building the modules
 
-This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
+By aggregating the build in the previous section, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
 
-By aggregating the build in the previous section, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. Use the following command to build the entire application from the `start` directory:
+Use the following command to build the entire application from the `start` directory:
 
 [role=command]
 ----
@@ -200,7 +200,7 @@ After you are finished checking out the application, stop the Open Liberty serve
 
 [role=command]
 ----
-mvn liberty:stop-server
+mvn liberty:stop
 ----
 
 

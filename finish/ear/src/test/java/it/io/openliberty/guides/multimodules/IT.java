@@ -27,8 +27,8 @@ public class IT {
     String war = "converter";
     String urlBase = "http://localhost:" + port + "/" + war + "/";
 
-    // tag::testIndexPage[]
     @Test
+    // tag::testIndexPage[]
     public void testIndexPage() throws Exception {
         String url = this.urlBase;
         HttpURLConnection con = testRequestHelper(url, "GET");
@@ -38,8 +38,8 @@ public class IT {
     }
     // end::testIndexPage[]
 
-    // tag::testHeightsPage[]
     @Test
+    // tag::testHeightsPage[]
     public void testHeightsPage() throws Exception {
         String url = this.urlBase + "heights.jsp?heightCm=10";
         HttpURLConnection con = testRequestHelper(url, "POST");
