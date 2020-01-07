@@ -7,10 +7,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.openliberty.guides</groupId>
-    <artifactId>guides-maven-multimodules-war</artifactId>
+    <artifactId>guide-maven-multimodules-war</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>guides-maven-multimodules-war</name>
+    <name>guide-maven-multimodules-war</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -40,7 +40,7 @@
         <!-- tag::dependency[] -->
         <dependency>
             <groupId>io.openliberty.guides</groupId>
-            <artifactId>guides-maven-multimodules-jar</artifactId>
+            <artifactId>guide-maven-multimodules-jar</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- end::dependency[] -->

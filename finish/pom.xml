@@ -10,7 +10,7 @@
     <!-- tag::groupId[] -->
     <groupId>io.openliberty.guides</groupId>
     <!-- end::groupId[] -->
-    <artifactId>guides-maven-multimodules</artifactId>
+    <artifactId>guide-maven-multimodules</artifactId>
     <version>1.0-SNAPSHOT</version>
     <!-- tag::packagingType[] -->
     <packaging>pom</packaging>
