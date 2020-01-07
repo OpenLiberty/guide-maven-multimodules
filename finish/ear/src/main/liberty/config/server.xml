@@ -1,18 +1,18 @@
 <server description="Sample Liberty server">
 
-  <!-- Enable features -->
-  <featureManager>
-    <feature>jsp-2.3</feature>
-  </featureManager>
+    <featureManager>
+        <feature>jsp-2.3</feature>
+    </featureManager>
 
-  <!-- tag::server[] -->
-  <!-- To access this server from a remote client add a host attribute to the following
-    element, e.g. host="*" -->
-  <httpEndpoint host="*" httpPort="${default.http.port}" httpsPort="${default.https.port}"
-    id="defaultHttpEndpoint" />
+    <variable name="default.http.port" defaultValue="9080" />
+    <variable name="default.https.port" defaultValue="9443" />
 
-  <enterpriseApplication id="io.openliberty.guides.multimodules.ear"
-    location="io.openliberty.guides.multimodules.ear-0.0.1-SNAPSHOT.ear" 
-    name="io.openliberty.guides.multimodules.ear" />
-  <!-- end::server[] -->
+    <!-- tag::server[] -->
+    <httpEndpoint host="*" httpPort="${default.http.port}"
+        httpsPort="${default.https.port}" id="defaultHttpEndpoint" />
+
+    <enterpriseApplication id="guide-maven-multimodules-ear"
+        location="guide-maven-multimodules-ear.ear"
+        name="guide-maven-multimodules-ear" />
+    <!-- end::server[] -->
 </server>
