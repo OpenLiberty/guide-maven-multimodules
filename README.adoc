@@ -12,6 +12,8 @@
 :page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
 :page-related-guides: ['maven-intro']
 :page-tags: []
+:page-seo-title: Building a multi-module enterprise Java application with Maven and Open Liberty
+:page-seo-description: A getting started tutorial and an example on how to use Maven to build a Java or Jakarta EE application with multiple modules consisting of Java archive (JAR), web archive (WAR), and enterprise archive (EAR) projects.
 :page-permalink: /guides/{projectid}
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
 :source-highlighter: prettify
