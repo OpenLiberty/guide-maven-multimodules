@@ -31,11 +31,11 @@ You will learn how to build an application with multiple modules with Maven and 
 
 == What you'll learn
 
-A Java Platform, Enterprise Edition (Java EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Java EE application, which consists of web archive (WAR) and Java archive (JAR) files. Package modules and resources into an EAR file to deploy or distribute the Java EE application to new environments.
+A Java Platform, Enterprise Edition (Java EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Java EE application, which consists of web archive (WAR) and Java archive (JAR) files. To deploy or distribute the Java EE application into new environments, all the modules and resources must first be packaged into an EAR file.
 
-You will learn how to establish a dependency between a web module and a Java library module. Next, use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty.
+You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty.
 
-You will build a unit converter application that converts heights from centimeters into feet and inches. Enter heights in centimeters from a web page, and the application processes the input with functions in the JAR file to return the corresponding height in Imperial units.
+You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value, in centimeters, and will then process the input within functions found in the JAR file to return the corresponding height in Imperial units.
 
 
 // =================================================================================================
@@ -47,7 +47,7 @@ include::{common-includes}/gitclone.adoc[]
 
 Access partial implementation of the application from the `start` folder. This folder includes a web module in the `war` folder, a Java library in the `jar` folder, and template files in the `ear` folder. However, the Java library and the web module are independent projects, and you will need to complete the following steps to implement the application:
 
-1. Add a dependency relationship between two modules.
+1. Add a dependency relationship between the two modules.
 
 2. Assemble the entire application into an EAR file.
 
@@ -90,9 +90,9 @@ mvn liberty:stop
 
 == Adding dependencies between WAR and JAR modules
 
-To use the Java library in your web module, add a dependency relationship between them.
+To use a Java library in your web module, a dependency relationship must be added between the two modules.
 
-As you might notice, each module has its own `pom.xml` file because each module is treated as an independent project. You can rebuild, reuse, and reassemble every module on its own.
+As you might have noticed, each module has its own `pom.xml` file. This is because each module is treated as an independent project. You can rebuild, reuse, and reassemble every module on its own.
 
 Navigate to the `start` directory to begin.
 
@@ -148,25 +148,13 @@ include::finish/ear/pom.xml[]
 
 Set the [hotspot=packaging file=0]`basic configuration` for the project and set the [hotspot=packagingType file=0]`<packaging/>` element to `ear`.
 
-The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify [hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify the web module, Maven looks for a JAR file.
+The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify [hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify the web module, then Maven will look for a JAR file.
 
 The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`<jarModule/>` and [hotspot=webModule file=0]`<webModule/>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the [hotspot=contextRoot file=0]`<contextRoot>/converter</contextRoot>` element in the [hotspot=webModule file=0]`<webModule/>`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 To download and start an Open Liberty server, use the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
-To deploy the EAR application, you need to configure a server.
-
-[role="code_command hotspot file=1", subs="quotes"]
-----
-#Create the server configuration file.#
-`ear/src/main/liberty/config/server.xml`
-----
-server.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/ear/src/main/liberty/config/server.xml[]
-----
 
 // =================================================================================================
 // Aggregating the entire build
@@ -220,7 +208,6 @@ To deploy your EAR application on an Open Liberty server, run the Maven `liberty
 
 [role=command]
 ----
-cd ear
 mvn liberty:run
 ----
 
@@ -303,7 +290,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 
 == Great work! You're done!
 
-You built and tested a multi-module unit converter application on the with Maven in Open Liberty.
+You built and tested a multi-module unit converter application, with Maven, on Open Liberty.
 
 
 include::{common-includes}/attribution.adoc[subs="attributes"]
