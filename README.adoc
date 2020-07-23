@@ -35,7 +35,7 @@ A Java Platform, Enterprise Edition (Java EE) application consists of modules th
 
 You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty.
 
-You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value, in centimeters, and will then process the input within functions found in the JAR file to return the corresponding height in Imperial units.
+You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value, in centimeters, and will then process the input using functions found in the JAR file to return the corresponding height in Imperial units.
 
 
 // =================================================================================================
@@ -290,7 +290,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 
 == Great work! You're done!
 
-You built and tested a multi-module unit converter application, with Maven, on Open Liberty.
+You built and tested a multi-module unit converter application with Maven on Open Liberty.
 
 
 include::{common-includes}/attribution.adoc[subs="attributes"]
