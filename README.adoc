@@ -155,6 +155,21 @@ To customize the context root of the application, set the [hotspot=contextRoot f
 
 To download and start an Open Liberty server, use the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
+To deploy and run an EAR application on an Open Liberty server, you need to provide a server configuration file.
+
+[role="code_command hotspot file=1", subs="quotes"]
+----
+#Create the server configuration file.#
+`ear/src/main/liberty/config/server.xml`
+----
+server.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/ear/src/main/liberty/config/server.xml[]
+----
+
+You must configure the `server.xml` to include the [hotspot=EARdefinition file=1]`enterpriseApplication` tag so that the server.xml knows to look for an EAR 
+application, and where to look for it. 
 
 // =================================================================================================
 // Aggregating the entire build
