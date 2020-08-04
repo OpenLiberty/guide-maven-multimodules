@@ -168,8 +168,7 @@ server.xml
 include::finish/ear/src/main/liberty/config/server.xml[]
 ----
 
-You must configure the `server.xml` to include the [hotspot=EARdefinition file=1]`enterpriseApplication` tag so that the server.xml knows to look for an EAR 
-application, and where to look for it. 
+You must configure the `server.xml` to include the [hotspot=EARdefinition file=1]`<enterpriseApplication/>` element to express the location of your EAR application.
 
 // =================================================================================================
 // Aggregating the entire build
@@ -223,6 +222,7 @@ To deploy your EAR application on an Open Liberty server, run the Maven `liberty
 
 [role=command]
 ----
+cd ear
 mvn liberty:run
 ----
 
