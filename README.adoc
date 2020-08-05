@@ -35,7 +35,7 @@ A Java Platform, Enterprise Edition (Java EE) application consists of modules th
 
 You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty.
 
-You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value, in centimeters, and will then process the input using functions found in the JAR file to return the corresponding height in Imperial units.
+You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value in centimeters. Then, the application processes the input by using functions that are found in the JAR file to return the height value in imperial units.
 
 
 // =================================================================================================
@@ -90,9 +90,9 @@ mvn liberty:stop
 
 == Adding dependencies between WAR and JAR modules
 
-To use a Java library in your web module, a dependency relationship must be added between the two modules.
+To use a Java library in your web module, you must add a dependency relationship between the two modules.
 
-As you might have noticed, each module has its own `pom.xml` file. This is because each module is treated as an independent project. You can rebuild, reuse, and reassemble every module on its own.
+As you might have noticed, each module has its own `pom.xml` file. Each module has its own `pom.xml` file because each module is treated as an independent project. You can rebuild, reuse, and reassemble every module on its own.
 
 Navigate to the `start` directory to begin.
 
@@ -148,7 +148,7 @@ include::finish/ear/pom.xml[]
 
 Set the [hotspot=packaging file=0]`basic configuration` for the project and set the [hotspot=packagingType file=0]`<packaging/>` element to `ear`.
 
-The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify [hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify the web module, then Maven will look for a JAR file.
+The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify this type for the web module, Maven looks for a JAR file.
 
 The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`<jarModule/>` and [hotspot=webModule file=0]`<webModule/>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the [hotspot=contextRoot file=0]`<contextRoot>/converter</contextRoot>` element in the [hotspot=webModule file=0]`<webModule/>`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
@@ -168,7 +168,7 @@ server.xml
 include::finish/ear/src/main/liberty/config/server.xml[]
 ----
 
-You must configure the `server.xml` to include the [hotspot=EARdefinition file=1]`<enterpriseApplication/>` element to express the location of your EAR application.
+You must configure the `server.xml` file with the [hotspot=EARdefinition file=1]`<enterpriseApplication/>` element to specify the location of your EAR application.
 
 // =================================================================================================
 // Aggregating the entire build
