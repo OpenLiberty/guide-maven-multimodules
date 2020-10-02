@@ -64,6 +64,7 @@ Maven goal to build the application:
 
 [role=command]
 ----
+cd finish
 mvn install
 ----
 
