@@ -149,7 +149,7 @@ include::finish/ear/pom.xml[]
 
 Set the [hotspot=packaging file=0]`basic configuration` for the project and set the [hotspot=packagingType file=0]`<packaging/>` element to `ear`.
 
-The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify this type for the web module, Maven looks for a JAR file.
+The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify [hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify this type for the web module, Maven looks for a JAR file.
 
 The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`<jarModule/>` and [hotspot=webModule file=0]`<webModule/>` modules to be packaged into the EAR file.
 To customize the context root of the application, set the [hotspot=contextRoot file=0]`<contextRoot>/converter</contextRoot>` element in the [hotspot=webModule file=0]`<webModule/>`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
