@@ -3,7 +3,7 @@ set -euxo pipefail
 
 ##############################################################################
 ##
-##  Travis CI test script
+##  GH actions CI test script
 ##
 ##############################################################################
 
@@ -18,7 +18,6 @@ mvn -q clean install
 
 cd ear
 mvn liberty:create liberty:install-feature liberty:deploy
-
 
 ## Run the tests
 # These commands are separated because if one of the commands fail, the test script will fail and exit.
