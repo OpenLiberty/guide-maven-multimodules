@@ -14,10 +14,16 @@ set -euxo pipefail
 #       liberty:create            - Create a Liberty server.
 #       liberty:install-feature   - Install a feature packaged as a Subsystem Archive (esa) to the Liberty runtime.
 #       liberty:deploy            - Copy applications to the Liberty server's dropins or apps directory.
-mvn -q clean install
+mvn -Dhttp.keepAlive=false \
+    -Dmaven.wagon.http.pool=false \
+    -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
+    -q clean install
 
 cd ear
-mvn liberty:create liberty:install-feature liberty:deploy
+mvn -Dhttp.keepAlive=false \
+    -Dmaven.wagon.http.pool=false \
+    -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
+    liberty:create liberty:install-feature liberty:deploy
 
 ## Run the tests
 # These commands are separated because if one of the commands fail, the test script will fail and exit.
