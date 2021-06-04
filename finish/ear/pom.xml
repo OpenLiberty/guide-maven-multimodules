@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.7.1</version>
+            <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -62,7 +62,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.0.2</version>
                 <configuration>
                     <modules>
                         <!-- tag::jarModule[] -->
@@ -93,7 +93,7 @@
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.3.4</version>
+                <version>3.2.3</version>
             </plugin>
             <!-- end::liberty-maven-plugin[] -->
 
