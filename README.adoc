@@ -1,4 +1,4 @@
-// Copyright (c) 2017, 2020 IBM Corporation and others.
+// Copyright (c) 2017, 2021 IBM Corporation and others.
 // Licensed under Creative Commons Attribution-NoDerivatives
 // 4.0 International (CC BY-ND 4.0)
 //   https://creativecommons.org/licenses/by-nd/4.0/
@@ -15,7 +15,7 @@
 :page-seo-title: Building a multi-module enterprise Java application with Maven and Open Liberty
 :page-seo-description: A getting started tutorial and an example on how to use Maven to build a Java or Jakarta EE application with multiple modules consisting of Java archive (JAR), web archive (WAR), and enterprise archive (EAR) projects.
 :page-permalink: /guides/{projectid}
-:common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
+:common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/prod
 :source-highlighter: prettify
 :guide-author: Open Liberty
 = Creating a multi-module application
