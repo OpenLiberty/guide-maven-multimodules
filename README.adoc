@@ -106,7 +106,7 @@ war/pom.xml
 ----
 include::finish/war/pom.xml[]
 ----
-The [hotspot=dependency file=0]`<dependency/>` element is the Java library module that implements the functions that you need for the unit converter.
+The [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
 
 With this dependency, you can use any functions included in the library in the [hotspot file=1]`HeightsBean.java` file of the web module.
 
@@ -146,12 +146,12 @@ ear/pom.xml
 include::finish/ear/pom.xml[]
 ----
 
-Set the [hotspot=packaging file=0]`basic configuration` for the project and set the [hotspot=packagingType file=0]`<packaging/>` element to `ear`.
+Set the [hotspot=packaging file=0]`basic configuration` for the project and set the [hotspot=packagingType file=0]`packaging` element to `ear`.
 
-The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify [hotspot=warType file=0]`<type>war</type>` for the web module. If you don’t specify this type for the web module, Maven looks for a JAR file.
+The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify a type of [hotspot=warType file=0]`war` for the web module. If you don’t specify this type for the web module, Maven looks for a JAR file.
 
-The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`<jarModule/>` and [hotspot=webModule file=0]`<webModule/>` modules to be packaged into the EAR file.
-To customize the context root of the application, set the [hotspot=contextRoot file=0]`<contextRoot>/converter</contextRoot>` element in the [hotspot=webModule file=0]`<webModule/>`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
+The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`jarModule` and [hotspot=webModule file=0]`webModule` modules to be packaged into the EAR file.
+To customize the context root of the application, set the [hotspot=contextRoot file=0]`contextRoot` element to [hotspot=contextRoot file=0]`/converter` in the [hotspot=webModule file=0]`webModule`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 To download and start an Open Liberty server, use the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in for Maven. This configuration is provided, and the executions of the plug-in follow the typical phases of a Maven life cycle.
 
@@ -168,7 +168,7 @@ server.xml
 include::finish/ear/src/main/liberty/config/server.xml[]
 ----
 
-You must configure the `server.xml` file with the [hotspot=EARdefinition file=1]`<enterpriseApplication/>` element to specify the location of your EAR application.
+You must configure the `server.xml` file with the [hotspot=EARdefinition file=1]`enterpriseApplication` element to specify the location of your EAR application.
 
 // =================================================================================================
 // Aggregating the entire build
@@ -190,9 +190,9 @@ start/pom.xml
 ----
 include::finish/pom.xml[]
 ----
-Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the [hotspot=packagingType file=0]`<packaging/>` element of the parent [hotspot]`pom.xml` file.
+Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the [hotspot=packagingType file=0]`packaging` element of the parent [hotspot]`pom.xml` file.
 
-In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`<modules/>` that you want to aggregate for the application.
+In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`modules` that you want to aggregate for the application.
 
 
 // =================================================================================================
