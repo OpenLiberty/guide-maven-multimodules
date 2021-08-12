@@ -218,21 +218,11 @@ Since the modules are independent, you can re-build them individually by running
 
 == Starting the application
 
-To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `ear` directory:
+Open Liberty development mode now supports multiple modules. When you run Open Liberty in development mode, known as dev mode, the server listens for file changes and automatically recompiles and deploys your updates whenever you save a new change. Run the following goal from the `start` directory to start Open Liberty in dev mode:
 
 [role=command]
 ----
-cd ear
-mvn liberty:run
-----
-
-Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
-
-After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal from the `start\ear` directory in another command-line session:
-
-[role=command]
-----
-mvn liberty:stop
+mvn io.openliberty.tools:liberty-maven-plugin:3.3.5-M2:dev
 ----
 
 
@@ -264,13 +254,9 @@ The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the ap
 For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is
 specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin`
 plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are
-compiled and picked up for execution. Run the following command to compile the
-test class:
+compiled and picked up for execution.
 
-[role=command]
-----
-mvn test-compile
-----
+Because you started Open Liberty in dev mode, press the `enter/return` key to run the tests.
 
 ear/pom.xml
 [source, xml, linenums, role='code_column']
@@ -278,13 +264,7 @@ ear/pom.xml
 include::finish/ear/pom.xml[]
 ----
 
-Then, enter the following command to start the server, run the tests, then stop the server:
-
-[role=command]
-----
-mvn liberty:start failsafe:integration-test liberty:stop
-----
-
+You will see the following output:
 [source, role="no_copy"]
 ----
 -------------------------------------------------------
