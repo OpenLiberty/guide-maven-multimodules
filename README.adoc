@@ -225,7 +225,6 @@ Open Liberty development mode now supports multiple modules. When you run Open L
 mvn io.openliberty.tools:liberty-maven-plugin:3.3.5-M2:dev
 ----
 
-
 // =================================================================================================
 // Testing the multi-module application
 // =================================================================================================
