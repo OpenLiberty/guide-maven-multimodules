@@ -15,30 +15,27 @@ package io.openliberty.guides.multimodules.lib;
 public class Converter {
 
     public static int getFeet(int cm) {
-        int feet = (int) (cm / 30.48);
-        return feet;
+        return 0;
     }
 
     public static int getInches(int cm) {
-        double feet = cm / 30.48;
-        int inches = (int) (cm / 2.54) - ((int) feet * 12);
-        return inches;
+        return 0;
     }
 
     public static int sum(int a, int b) {
-        return a + b;
+        return 0;
     }
 
     public static int diff(int a, int b) {
-        return a - b;
+        return 0;
     }
 
     public static int product(int a, int b) {
-        return a * b;
+        return 0;
     }
 
     public static int quotient(int a, int b) {
-        return a / b;
+        return 0;
     }
 
 }
