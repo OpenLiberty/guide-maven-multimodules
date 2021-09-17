@@ -24,4 +24,18 @@
         <module>ear</module>
     </modules>
     <!-- end::modules[] -->
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+                    <!-- Enable liberty-maven plugin -->
+            <!-- tag::liberty-maven-plugin[] -->
+            <plugin>
+                <groupId>io.openliberty.tools</groupId>
+                <artifactId>liberty-maven-plugin</artifactId>
+                <version>3.4</version>
+            </plugin>
+            <!-- end::liberty-maven-plugin[] -->
+        </plugins>
+    </build>
 </project>
