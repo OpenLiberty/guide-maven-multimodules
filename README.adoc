@@ -110,6 +110,7 @@ The [hotspot=dependency file=0]`dependency` element is the Java library module t
 
 It is worth noting that the [hotspot=parent file=0]`parent/child` structure is not needed for multi-module projects, but is used here to avoid using the fully qualified plugin name when running the dev mode command later on in the guide.
 
+
 // =================================================================================================
 // Assembling multiple modules into an EAR file
 // =================================================================================================
@@ -176,6 +177,7 @@ Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `po
 
 In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`modules` that you want to aggregate for the application.
 
+
 // =================================================================================================
 // Developing the application
 // =================================================================================================
@@ -187,10 +189,11 @@ Navigate to the `start` directory to begin.
 [role='command']
 include::{common-includes}/devmode-lmp33-start.adoc[]
 
-=== Creating the Java classes
+=== Updating the Java classes in different modules
 
+Update the `HeightsBean` class to use the Java library module that implements the functions that you need for the unit converter.
 
-[role="code_command hotspot file=1", subs="quotes"]
+[role="code_command hotspot file=0", subs="quotes"]
 ----
 #Replace the `HeightsBean` class.#
 `war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
@@ -201,17 +204,19 @@ HeightsBean.java
 include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[]
 ----
 
-The [hotspot=getFeet file=1]`getFeet(cm)` invocation was added to the [hotspot=setHeightFeet file=1]`setHeightFeet` method to convert a measurement into feet.
+The [hotspot=getFeet file=0]`getFeet(cm)` invocation was added to the [hotspot=setHeightFeet file=0]`setHeightFeet` method to convert a measurement into feet.
 
-The [hotspot=getInches file=1]`getInches(cm)` invocation was added to the [hotspot=setHeightInches file=1]`setHeightInches` method to convert a measurement into inches.
+The [hotspot=getInches file=0]`getInches(cm)` invocation was added to the [hotspot=setHeightInches file=0]`setHeightInches` method to convert a measurement into inches.
 
 You can check out the running application by going to the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL.
 
 Now try updating the converter so that it converts heights correctly, rather than returning 0.
 
+Update the `Converter` class for ...
+
 [role="code_command hotspot file=1", subs="quotes"]
 ----
-#Update the `Converter` class.#
+#Replace the `Converter` class.#
 `start/jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
 ----
 Converter.java
@@ -221,6 +226,7 @@ include::finish/jar/src/main/java/io/openliberty/guides/multimodules/lib/Convert
 ----
 
 Now revisit the application at the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL. Try entering a height in centimetres and see if it converts correctly.
+
 
 === Testing the multi-module application
 
@@ -243,6 +249,7 @@ The [hotspot=testIndexPage file=0]`testIndexPage` tests to check that you can ac
 
 The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
+
 === Running the tests
 
 Because you started Open Liberty in dev mode, press the `enter/return key` to run the tests.
@@ -263,9 +270,9 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 
 ----
 
-=== Close dev mode
 
-When you are done checking out the service, exit dev mode by pressing `CTRL+C` in the command-line session where you ran the server, or by typing `q` and then pressing the `enter/return` key.
+When you are done checking out the service, exit dev mode by pressing `CTRL+C` in the command-line session where you ran the server, 
+or by typing `q` and then pressing the `enter/return` key.
 
 // =================================================================================================
 // Building the multi-module application
@@ -296,7 +303,8 @@ mvn liberty:run
 
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 
-After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal from the `start\ear` directory in another command-line session:
+After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server.
+Alternatively, you can run the `liberty:stop` goal from the `start\ear` directory in another command-line session:
 
 [role=command]
 ----
@@ -307,21 +315,23 @@ mvn liberty:stop
 // Testing the application in CI and CD pipelines
 // =================================================================================================
 
-For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is
-specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin`
-plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are
+== Testing the multi-module application
+
+ear/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/ear/pom.xml[]
+----
+
+For a Maven EAR project, the [hotspot=testCompile file=0]`testCompile` goal is
+specified for the [hotspot=maven-compiler-plugin file=0]`maven-compiler-plugin`
+plug-in in your [hotspot file=0]`ear/pom.xml` file so that the test cases are
 compiled and picked up for execution. Run the following command to compile the
 test class:
 
 [role=command]
 ----
 mvn test-compile
-----
-
-ear/pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/ear/pom.xml[]
 ----
 
 Then, enter the following command to start the server, run the tests, then stop the server:
