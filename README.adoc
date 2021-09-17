@@ -311,31 +311,11 @@ Alternatively, you can run the `liberty:stop` goal from the `start\ear` director
 mvn liberty:stop
 ----
 
-
 // =================================================================================================
-// Testing the multi-module application
+// Testing the application in CI and CD pipelines
 // =================================================================================================
 
 == Testing the multi-module application
-
-To test the multi-module application, add integration tests to the EAR project.
-
-Navigate to the `start\ear` directory.
-
-[role="code_command hotspot", subs="quotes"]
-----
-#Create the integration test class.#
-`src/test/java/it/io/openliberty/guides/multimodules/IT.java`
-----
-IT.java
-[source, Java, linenums, role='code_column hide_tags=copyright']
-----
-include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java[]
-----
-
-The [hotspot=testIndexPage file=0]`testIndexPage` tests to check that you can access the landing page.
-
-The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
 For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is
 specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin`
