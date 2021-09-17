@@ -275,10 +275,23 @@ When you are done checking out the service, exit dev mode by pressing `CTRL+C` i
 or by typing `q` and then pressing the `enter/return` key.
 
 // =================================================================================================
-// Starting the application
+// Building the multi-module application
 // =================================================================================================
 
-== Starting the application
+== Building the multi-module application
+
+Now you have aggregated and developed the build, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
+
+Use the following command to build the entire application from the `start` directory:
+
+[role=command]
+----
+mvn install
+----
+
+Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding module directory.
+
+=== Start the application
 
 To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `ear` directory:
 
@@ -290,7 +303,8 @@ mvn liberty:run
 
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 
-After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal from the `start\ear` directory in another command-line session:
+After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server.
+Alternatively, you can run the `liberty:stop` goal from the `start\ear` directory in another command-line session:
 
 [role=command]
 ----
