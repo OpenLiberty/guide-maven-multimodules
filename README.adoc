@@ -179,10 +179,15 @@ In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`
 
 
 // =================================================================================================
-// Building the modules
+// Developing the application
 // =================================================================================================
 
-== Building the modules
+== Developing the application
+
+Navigate to the `start` directory to begin.
+
+[role='command']
+include::{common-includes}/devmode-lmp33-start.adoc[]
 
 By aggregating the build in the previous section, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
 
