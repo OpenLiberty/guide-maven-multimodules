@@ -28,7 +28,7 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-                    <!-- Enable liberty-maven plugin -->
+            <!-- Enable liberty-maven plugin -->
             <!-- tag::liberty-maven-plugin[] -->
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
