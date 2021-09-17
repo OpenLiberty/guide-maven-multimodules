@@ -249,6 +249,27 @@ The [hotspot=testIndexPage file=0]`testIndexPage` tests to check that you can ac
 
 The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the application can process the input value and calculate the result correctly.
 
+
+=== Running the tests
+
+Because you started Open Liberty in dev mode, press the `enter/return key` to run the tests.
+
+You will see the following output:
+
+[source, role="no_copy"]
+----
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running it.io.openliberty.guides.multimodules.IT
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.712 sec - in it.io.openliberty.guides.multimodules.IT
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+----
+
 // =================================================================================================
 // Starting the application
 // =================================================================================================
