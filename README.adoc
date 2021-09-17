@@ -212,6 +212,21 @@ You can check out the running application by going to the http://localhost:9080/
 
 Now try updating the converter so that it converts heights correctly, rather than returning 0.
 
+Update the `Converter` class for ...
+
+[role="code_command hotspot file=1", subs="quotes"]
+----
+#Replace the `Converter` class.#
+`start/jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
+----
+Converter.java
+[source, Java, linenums, role='code_column hide_tags=copyright']
+----
+include::finish/jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java[]
+----
+
+Now revisit the application at the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL. Try entering a height in centimetres and see if it converts correctly.
+
 // =================================================================================================
 // Starting the application
 // =================================================================================================
