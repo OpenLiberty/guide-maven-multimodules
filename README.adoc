@@ -270,6 +270,10 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 
 ----
 
+
+When you are done checking out the service, exit dev mode by pressing `CTRL+C` in the command-line session where you ran the server, 
+or by typing `q` and then pressing the `enter/return` key.
+
 // =================================================================================================
 // Starting the application
 // =================================================================================================
