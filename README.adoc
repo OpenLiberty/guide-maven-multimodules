@@ -317,21 +317,21 @@ mvn liberty:stop
 
 == Testing the multi-module application
 
-For a Maven EAR project, the [hotspot=testCompile file=1]`testCompile` goal is
-specified for the [hotspot=maven-compiler-plugin file=1]`maven-compiler-plugin`
-plug-in in your [hotspot file=1]`ear/pom.xml` file so that the test cases are
+ear/pom.xml
+[source, xml, linenums, role='code_column']
+----
+include::finish/ear/pom.xml[]
+----
+
+For a Maven EAR project, the [hotspot=testCompile file=0]`testCompile` goal is
+specified for the [hotspot=maven-compiler-plugin file=0]`maven-compiler-plugin`
+plug-in in your [hotspot file=0]`ear/pom.xml` file so that the test cases are
 compiled and picked up for execution. Run the following command to compile the
 test class:
 
 [role=command]
 ----
 mvn test-compile
-----
-
-ear/pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/ear/pom.xml[]
 ----
 
 Then, enter the following command to start the server, run the tests, then stop the server:
