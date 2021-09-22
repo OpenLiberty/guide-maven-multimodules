@@ -14,16 +14,20 @@ package io.openliberty.guides.multimodules.lib;
 
 public class Converter {
 
+    // tag::getFeetMethod[]
     public static int getFeet(int cm) {
         int feet = (int) (cm / 30.48);
         return feet;
     }
+    // end::getFeetMethod[]
 
+    // tag::getInchesMethod[]
     public static int getInches(int cm) {
         double feet = cm / 30.48;
         int inches = (int) (cm / 2.54) - ((int) feet * 12);
         return inches;
     }
+    // end::getInchesMethod[]
 
     public static int sum(int a, int b) {
         return a + b;

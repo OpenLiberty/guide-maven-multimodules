@@ -32,7 +32,7 @@ You will learn how to build an application with multiple modules with Maven and 
 
 A Java Platform, Enterprise Edition (Java EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Java EE application, which consists of web archive (WAR) and Java archive (JAR) files. To deploy or distribute the Java EE application into new environments, all the modules and resources must first be packaged into an EAR file.
 
-You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty.
+You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty. You'll learn how to use the Liberty Maven Plugin to develop a multimodules application in dev mode, without having to prebuild the JAR and WAR files, as your changes are automatically picked up.
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value in centimeters. Then, the application processes the input by using functions that are found in the JAR file to return the height value in imperial units.
 
@@ -67,21 +67,20 @@ cd finish
 mvn install
 ----
 
-To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `ear` directory:
+To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `start` directory using the `-pl ear` flag:
 
 [role=command]
 ----
-cd ear
-mvn liberty:run
+mvn -pl ear liberty:run
 ----
 
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 
-After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal from the `finish\ear` directory in another command-line session:
+After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal using the `-pl ear` flag from the `finish` directory in another command-line session:
 
 [role=command]
 ----
-mvn liberty:stop
+mvn -pl ear liberty:stop
 ----
 
 // =================================================================================================
@@ -108,7 +107,7 @@ include::finish/war/pom.xml[]
 ----
 The [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
 
-It is worth noting that the [hotspot=parent file=0]`parent/child` structure is not needed for multi-module projects, but is used here to avoid using the fully qualified plugin name when running the dev mode command later on in the guide.
+It is worth noting that the [hotspot=parent file=0]`parent/child` structure is generally not needed for multi-module projects, but is required here to better organize all of the projects.
 
 // =================================================================================================
 // Assembling multiple modules into an EAR file
@@ -176,11 +175,15 @@ Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `po
 
 In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`modules` that you want to aggregate for the application.
 
+Add the [hotspot=liberty-maven-plugin file=0]`Liberty Maven Plugin` to the parent `pom.xml` file. This allows each child module to inherit the plugin, which allows you to install applications into Open Liberty.
+
 // =================================================================================================
 // Developing the application
 // =================================================================================================
 
 == Developing the application
+
+Now you can develop the application and the different modules together using the Liberty Maven Plugin developer mode.
 
 Navigate to the `start` directory to begin.
 
@@ -190,7 +193,7 @@ include::{common-includes}/devmode-lmp33-start.adoc[]
 === Creating the Java classes
 
 
-[role="code_command hotspot file=1", subs="quotes"]
+[role="code_command hotspot file=0", subs="quotes"]
 ----
 #Replace the `HeightsBean` class.#
 `war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
@@ -201,13 +204,11 @@ HeightsBean.java
 include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[]
 ----
 
-The [hotspot=getFeet file=1]`getFeet(cm)` invocation was added to the [hotspot=setHeightFeet file=1]`setHeightFeet` method to convert a measurement into feet.
+The [hotspot=getFeet file=0]`getFeet(cm)` invocation was added to the [hotspot=setHeightFeet file=0]`setHeightFeet` method to convert a measurement into feet.
 
-The [hotspot=getInches file=1]`getInches(cm)` invocation was added to the [hotspot=setHeightInches file=1]`setHeightInches` method to convert a measurement into inches.
+The [hotspot=getInches file=0]`getInches(cm)` invocation was added to the [hotspot=setHeightInches file=0]`setHeightInches` method to convert a measurement into inches.
 
 You can check out the running application by going to the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL.
-
-Now try updating the converter so that it converts heights correctly, rather than returning 0.
 
 [role="code_command hotspot file=1", subs="quotes"]
 ----
@@ -219,6 +220,8 @@ Converter.java
 ----
 include::finish/jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java[]
 ----
+
+Update the class so that the methods return the correct values. Change the [hotspot=getFeetMethod file=1]`getFeet` method so that it converts from centimetres to feet, and the [hotspot=getInchesMethod file=1]`getInches` method so that it converts from centimetres to inches. Update the `sum`, `diff`, `product` and `quotient` functions so that they add, subtract, multiply, and divide 2 numbers respectively.
 
 Now revisit the application at the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL. Try entering a height in centimetres and see if it converts correctly.
 
@@ -273,7 +276,7 @@ When you are done checking out the service, exit dev mode by pressing `CTRL+C` i
 
 == Building the multi-module application
 
-Now you have aggregated and developed the build, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
+You have aggregated and developed the application. Now, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
 
 Use the following command to build the entire application from the `start` directory:
 
@@ -284,7 +287,7 @@ mvn install
 
 Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding module directory.
 
-=== Start the application
+Or, run `mvn -pl <child project> install` from the start directory.
 
 To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `ear` directory:
 
