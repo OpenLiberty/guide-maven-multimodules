@@ -314,50 +314,6 @@ mvn liberty:stop
 ----
 
 // =================================================================================================
-// Testing the application in CI and CD pipelines
-// =================================================================================================
-
-== Testing the multi-module application
-
-ear/pom.xml
-[source, xml, linenums, role='code_column']
-----
-include::finish/ear/pom.xml[]
-----
-
-For a Maven EAR project, the [hotspot=testCompile file=0]`testCompile` goal is
-specified for the [hotspot=maven-compiler-plugin file=0]`maven-compiler-plugin`
-plug-in in your [hotspot file=0]`ear/pom.xml` file so that the test cases are
-compiled and picked up for execution. Run the following command to compile the
-test class:
-
-[role=command]
-----
-mvn test-compile
-----
-
-Then, enter the following command to start the server, run the tests, then stop the server:
-
-[role=command]
-----
-mvn liberty:start failsafe:integration-test liberty:stop
-----
-
-[source, role="no_copy"]
-----
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running it.io.openliberty.guides.multimodules.IT
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.712 sec - in it.io.openliberty.guides.multimodules.IT
-
-Results :
-
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
-
-----
-
-// =================================================================================================
 // Congratulations! You're done!
 // =================================================================================================
 
