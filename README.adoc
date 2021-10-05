@@ -67,7 +67,7 @@ cd finish
 mvn install
 ----
 
-To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `start` directory using the `-pl ear` flag:
+To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `finish` directory using the `-pl ear` flag:
 
 [role=command]
 ----
