@@ -12,7 +12,7 @@
 :page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
 :page-related-guides: ['maven-intro']
 :page-seo-title: Building a multi-module enterprise Java application with Maven and Open Liberty
-:page-seo-description: A getting started tutorial and an example on how to use Maven to build a Java or Jakarta EE application with multiple modules consisting of Java archive (JAR), web archive (WAR), and enterprise archive (EAR) projects.
+:page-seo-description: A getting started tutorial and an example on how to use Maven to build a Java or Java EE application with multiple modules consisting of Java archive (JAR), web archive (WAR), and enterprise archive (EAR) projects.
 :page-permalink: /guides/{projectid}
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/prod
 :source-highlighter: prettify
@@ -30,7 +30,7 @@ You will learn how to build an application with multiple modules with Maven and 
 
 == What you'll learn
 
-A Java Platform, Enterprise Edition (Java EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Java EE application, which consists of web archive (WAR) and Java archive (JAR) files. To deploy or distribute the Java EE application into new environments, all the modules and resources must first be packaged into an EAR file.
+A Java Platform, Enterprise Edition (Jakarta EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Jakarta EE application, which consists of web archive (WAR) and Java archive (JAR) files. To deploy or distribute the Jakarta EE application into new environments, all the modules and resources must first be packaged into an EAR file.
 
 You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty. You'll learn how to use the Liberty Maven Plugin to develop a multimodules application in development mode, without having to prebuild the JAR and WAR files, as your changes are automatically picked up.
 
@@ -107,7 +107,7 @@ include::finish/war/pom.xml[]
 ----
 The [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
 
-Normally, the `parent/child` structure would not be needed for multi-module applications, however it is better to use it here, as it allows us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins defined in the parent `pom.xml`, without having to define them again in the child `pom.xml` files.
+Normally, the [hotspot=parent file=0]`parent/child` structure would not be needed for multi-module applications, however it is better to use it here, as it allows us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins defined in the parent `pom.xml`, without having to define them again in the child `pom.xml` files.
 
 // =================================================================================================
 // Assembling multiple modules into an EAR file
