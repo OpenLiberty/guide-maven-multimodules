@@ -32,7 +32,7 @@ You will learn how to build an application with multiple modules with Maven and 
 
 A Java Platform, Enterprise Edition (Jakarta EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Jakarta EE application, which consists of web archive (WAR) and Java archive (JAR) files. To deploy or distribute the Jakarta EE application into new environments, all the modules and resources must first be packaged into an EAR file.
 
-You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty. You'll learn how to use the Liberty Maven Plugin to develop a multimodules application in development mode, without having to prebuild the JAR and WAR files, as your changes are automatically picked up.
+You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty. You'll learn how to use the Liberty Maven Plugin to develop a multi-module application in development mode, without having to prebuild the JAR and WAR files, as your changes are automatically picked up.
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value in centimeters. Then, the application processes the input by using functions that are found in the JAR file to return the height value in imperial units.
 
@@ -67,7 +67,7 @@ cd finish
 mvn install
 ----
 
-To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `finish` directory using the `-pl ear` flag:
+To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `finish` directory using the `-pl ear` or `--projects ear` flag:
 
 [role=command]
 ----
