@@ -30,9 +30,13 @@ You will learn how to build an application with multiple modules with Maven and 
 
 == What you'll learn
 
-A Java Platform, Enterprise Edition (Jakarta EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Jakarta EE application, which consists of web archive (WAR) and Java archive (JAR) files. To deploy or distribute the Jakarta EE application into new environments, all the modules and resources must first be packaged into an EAR file.
+A Jakarta Platform, Enterprise Edition (Jakarta EE) application consists of modules that work together as one entity. An enterprise archive (EAR) is a wrapper for a Jakarta EE application, which consists of web archive (WAR) and Java archive (JAR) files. To deploy or distribute the Jakarta EE application into new environments, all the modules and resources must first be packaged into an EAR file.
 
-You will learn how to establish a dependency between a web module and a Java library module. You will use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty. You'll learn how to use the Liberty Maven Plugin to develop a multi-module application in development mode, without having to prebuild the JAR and WAR files, as your changes are automatically picked up.
+In this guide, you will learn how to:
+
+* establish a dependency between a web module and a Java library module,
+* use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty, and
+* use the Liberty Maven plug-in to develop a multi-module application in development mode without having to prebuild the JAR and WAR files. In development mode, your changes are automatically picked up by the running server.
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value in centimeters. Then, the application processes the input by using functions that are found in the JAR file to return the height value in imperial units.
 
@@ -107,7 +111,7 @@ include::finish/war/pom.xml[]
 ----
 The [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
 
-Normally, the [hotspot=parent file=0]`parent/child` structure would not be needed for multi-module applications, however it is better to use it here, as it allows us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins defined in the parent `pom.xml`, without having to define them again in the child `pom.xml` files.
+Although the [hotspot=parent file=0]`parent/child` structure is not normally needed for multi-module applications, here it helps us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins that are defined in the parent `pom.xml` file, without having to define them again in the child `pom.xml` files.
 
 // =================================================================================================
 // Assembling multiple modules into an EAR file
@@ -183,8 +187,8 @@ Add the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in to t
 
 == Developing the application
 
-Now you can develop the application and the different modules together using the Liberty Maven plug-in development mode.
-To learn more about to use development mode with multiple modules, check out the link:https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation].
+You can now develop the application and the different modules together in dev mode by using the Liberty Maven plug-in.
+To learn more about how to use development mode with multiple modules, check out the link:https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation].
 
 Navigate to the `start` directory to begin.
 
@@ -254,7 +258,7 @@ The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the ap
 
 === Running the tests
 
-Because you started Open Liberty in development mode, press the `enter/return key` to run the tests.
+Because you started Open Liberty in development mode, press the *enter/return* key to run the tests.
 
 You will see the following output:
 
@@ -273,8 +277,8 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 ----
 
 
-When you are done checking out the service, exit dev mode by pressing `CTRL+C` in the command-line session where you ran the server, 
-or by typing `q` and then pressing the `enter/return` key.
+When you are done checking out the service, exit development mode by pressing `CTRL+C` in the command-line session where you ran the server, 
+or by typing *q* and then pressing the *enter/return* key.
 
 // =================================================================================================
 // Building the multi-module application
@@ -282,16 +286,16 @@ or by typing `q` and then pressing the `enter/return` key.
 
 == Building the multi-module application
 
-You have aggregated and developed the application. Now, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file in the `ear/target` directory, which contains the JAR and WAR files.
+You aggregated and developed the application. Now, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file that contains the JAR and WAR files in the `ear/target` directory.
 
-Use the following command to build the entire application from the `start` directory:
+Run the following command from the start directory to build the entire application:
 
 [role=command]
 ----
 mvn install
 ----
 
-Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding module directory.
+Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding `start` directory for each module.
 
 Or, run `mvn -pl <child project> install` from the start directory.
 
