@@ -267,7 +267,7 @@ include::finish/jar/src/main/java/io/openliberty/guides/multimodules/lib/Convert
 
 Change the [hotspot=getFeetMethod file=1]`getFeet` method so that it converts from centimetres to feet, and the [hotspot=getInchesMethod file=1]`getInches` method so that it converts from centimetres to inches. Update the `sum`, `diff`, `product` and `quotient` functions so that they add, subtract, multiply, and divide 2 numbers respectively.
 
-ifndef:cloud-hosted[]
+ifndef::cloud-hosted[]
 Now revisit the application at the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL. Try entering a height in centimetres and see if it converts correctly.
 endif::[]
 ifdef::cloud-hosted[]
@@ -335,7 +335,7 @@ or by typing *q* and then pressing the *enter/return* key.
 
 You aggregated and developed the application. Now, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file that contains the JAR and WAR files in the `ear/target` directory.
 
-ifndef:cloud-hosted[]
+ifndef::cloud-hosted[]
 Run the following command from the start directory to build the entire application:
 
 [role=command]
