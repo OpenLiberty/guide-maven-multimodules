@@ -9,6 +9,7 @@
 :page-layout: guide-multipane
 :page-duration: 30 minutes
 :page-releasedate: 2017-10-04
+:page-majorupdateddate: 2021-11-04
 :page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
 :page-related-guides: ['maven-intro']
 :page-seo-title: Building a multi-module enterprise Java application with Maven and Open Liberty
@@ -71,7 +72,7 @@ cd finish
 mvn install
 ----
 
-To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the `finish` directory using the `-pl ear` or `--projects ear` flag:
+To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the finish directory using the `-pl` flag to specify the ear project. The `-pl` flag specifies the project where the maven goal runs.
 
 [role=command]
 ----
@@ -273,6 +274,7 @@ endif::[]
 ifdef::cloud-hosted[]
 Now revisit the application at the URL you previously output. Try entering a height in centimetres and see if it converts correctly.
 endif::[]
+
 
 === Testing the multi-module application
 
