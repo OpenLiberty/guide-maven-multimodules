@@ -1,6 +1,6 @@
-// tag::comment[]
+// tag::copyright[]
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2021 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,21 +9,25 @@
  * Contributors:
  *     IBM Corporation - Initial implementation
  *******************************************************************************/
-// end::comment[]
+// end::copyright[]
 package io.openliberty.guides.multimodules.lib;
 
 public class Converter {
 
+    // tag::getFeetMethod[]
     public static int getFeet(int cm) {
         int feet = (int) (cm / 30.48);
         return feet;
     }
+    // end::getFeetMethod[]
 
+    // tag::getInchesMethod[]
     public static int getInches(int cm) {
         double feet = cm / 30.48;
         int inches = (int) (cm / 2.54) - ((int) feet * 12);
         return inches;
     }
+    // end::getInchesMethod[]
 
     public static int sum(int a, int b) {
         return a + b;
