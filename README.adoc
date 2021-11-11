@@ -84,7 +84,7 @@ Once the server is running, you can find the application at the following URL: h
 endif::[]
 ifdef::cloud-hosted[]
 Once the server is running, open another command-line session by selecting **Terminal** > **New Terminal** 
-from the menu of the IDE. Then use the following command to get the URL.
+from the menu of the IDE. Then use the following command to get the URL to access the service.
 Open your browser and check out your service by going to the URL that the command returns.
 ```
 echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
@@ -213,7 +213,7 @@ Navigate to the `start` directory to begin.
 // cloud hosted instructions
 ifdef::cloud-hosted[]
 ```
-cd /home/project/guide-arquillian-managed/start
+cd /home/project/guide-maven-multimodules/start
 ```
 {: codeblock}
 endif::[]
@@ -230,7 +230,7 @@ Navigate to the `start\war` directory.
 [role="code_command hotspot file=0", subs="quotes"]
 ----
 #Replace the `HeightsBean` class.#
-`src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
+`war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
 ----
 HeightsBean.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
@@ -262,7 +262,7 @@ Navigate to the `start\jar` directory.
 [role="code_command hotspot file=1", subs="quotes"]
 ----
 #Replace the `Converter` class.#
-`src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
+`jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
 ----
 Converter.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
@@ -288,7 +288,7 @@ Navigate to the `start\ear` directory.
 // cloud hosted instructions
 ifdef::cloud-hosted[]
 ```
-cd /home/project/guide-arquillian-managed/start/ear
+cd /home/project/guide-maven-multimodules/start/ear
 ```
 {: codeblock}
 endif::[]
@@ -296,7 +296,7 @@ endif::[]
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the integration test class.#
-`src/test/java/it/io/openliberty/guides/multimodules/IT.java`
+`ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
 IT.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
@@ -352,7 +352,7 @@ endif::[]
 ifdef::cloud-hosted[]
 Run the following commands to navigate to the start directory and build the entire application:
 ```
-cd /home/project/guide-arquillian-managed/start
+cd /home/project/guide-maven-multimodules/start
 mvn install
 ```
 {: codeblock}
