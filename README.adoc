@@ -285,13 +285,6 @@ endif::[]
 To test the multi-module application, add integration tests to the EAR project.
 
 Navigate to the `start\ear` directory.
-// cloud hosted instructions
-ifdef::cloud-hosted[]
-```
-cd /home/project/guide-maven-multimodules/start/ear
-```
-{: codeblock}
-endif::[]
 
 [role="code_command hotspot", subs="quotes"]
 ----
