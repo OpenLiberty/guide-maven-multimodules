@@ -241,19 +241,16 @@ include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/Heights
 endif::[]
 // cloud hosted instruction
 ifdef::cloud-hosted[]
-
 [role="code_command hotspot file=0", subs="quotes"]
 ----
 #Replace the `HeightsBean` class.#
 `war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
 ----
-
 HeightsBean.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
 ----
 include::finish/war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java[]
 ----
-
 endif::[]
 
 The [hotspot=getFeet file=0]`getFeet(cm)` invocation was added to the [hotspot=setHeightFeet file=0]`setHeightFeet` method to convert a measurement into feet.
@@ -291,19 +288,16 @@ include::finish/jar/src/main/java/io/openliberty/guides/multimodules/lib/Convert
 endif::[]
 // cloud hosted instruction
 ifdef::cloud-hosted[]
-
 [role="code_command hotspot file=1", subs="quotes"]
 ----
 #Replace the `Converter` class.#
 `jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
 ----
-
 Converter.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
 ----
 include::finish/jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java[]
 ----
-
 endif::[]
 
 Change the [hotspot=getFeetMethod file=1]`getFeet` method so that it converts from centimetres to feet, and the [hotspot=getInchesMethod file=1]`getInches` method so that it converts from centimetres to inches. Update the `sum`, `diff`, `product` and `quotient` functions so that they add, subtract, multiply, and divide 2 numbers respectively.
@@ -336,19 +330,16 @@ include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java[
 endif::[]
 // cloud hosted instruction
 ifdef::cloud-hosted[]
-
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the integration test class.#
 `ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
-
 IT.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
 ----
 include::finish/ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java[]
 ----
-
 endif::[]
 
 The [hotspot=testIndexPage file=0]`testIndexPage` tests to check that you can access the landing page.
