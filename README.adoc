@@ -227,19 +227,19 @@ Update the `HeightsBean` class to use the Java library module that implements th
 
 Navigate to the `start\war` directory.
 
-ifndef::cloud-hosted[]
-[role="code_command hotspot file=0", subs="quotes"]
-----
-#Replace the `HeightsBean` class.#
-`src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
-----
-endif::[]
 // cloud hosted instruction
 ifdef::cloud-hosted[]
 [role="code_command hotspot file=0", subs="quotes"]
 ----
 #Replace the `HeightsBean` class.#
 `war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
+----
+endif::[]
+ifndef::cloud-hosted[]
+[role="code_command hotspot file=0", subs="quotes"]
+----
+#Replace the `HeightsBean` class.#
+`src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
 ----
 endif::[]
 HeightsBean.java
@@ -269,19 +269,19 @@ Now try updating the converter so that it converts heights correctly, rather tha
 
 Navigate to the `start\jar` directory.
 
-ifndef::cloud-hosted[]
-[role="code_command hotspot file=1", subs="quotes"]
-----
-#Replace the `Converter` class.#
-`src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
-----
-endif::[]
 // cloud hosted instruction
 ifdef::cloud-hosted[]
 [role="code_command hotspot file=1", subs="quotes"]
 ----
 #Replace the `Converter` class.#
 `jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
+----
+endif::[]
+ifndef::cloud-hosted[]
+[role="code_command hotspot file=1", subs="quotes"]
+----
+#Replace the `Converter` class.#
+`src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
 ----
 endif::[]
 Converter.java
@@ -306,19 +306,19 @@ To test the multi-module application, add integration tests to the EAR project.
 
 Navigate to the `start\ear` directory.
 
-ifndef::cloud-hosted[]
-[role="code_command hotspot", subs="quotes"]
-----
-#Create the integration test class.#
-`src/test/java/it/io/openliberty/guides/multimodules/IT.java`
-----
-endif::[]
 // cloud hosted instruction
 ifdef::cloud-hosted[]
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the integration test class.#
 `ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
+----
+endif::[]
+ifndef::cloud-hosted[]
+[role="code_command hotspot", subs="quotes"]
+----
+#Create the integration test class.#
+`src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
 endif::[]
 IT.java
