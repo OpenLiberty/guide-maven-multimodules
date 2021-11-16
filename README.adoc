@@ -280,6 +280,7 @@ Now revisit the application at the URL you previously found. Use the following c
 ```
 echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
 ```
+{: codeblock}
 Try entering a height in centimetres and see if it converts correctly.
 endif::[]
 
