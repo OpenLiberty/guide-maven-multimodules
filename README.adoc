@@ -207,7 +207,7 @@ Add the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in to t
 == Developing the application
 
 You can now develop the application and the different modules together in dev mode by using the Liberty Maven plug-in.
-To learn more about how to use development mode with multiple modules, check out the link:https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation^].
+To learn more about how to use development mode with multiple modules, check out the https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation^].
 
 Navigate to the `start` directory to begin.
 // cloud hosted instructions
