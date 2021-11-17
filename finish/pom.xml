@@ -32,7 +32,7 @@
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.4</version>
+                <version>3.5</version>
             </plugin>
             <!-- end::liberty-maven-plugin[] -->
         </plugins>
