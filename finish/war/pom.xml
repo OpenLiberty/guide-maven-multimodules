@@ -4,6 +4,14 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
     http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <!-- tag::parent[] -->
+    <parent>
+        <groupId>io.openliberty.guides</groupId>
+        <artifactId>guide-maven-multimodules</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <!-- end::parent[] -->
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.openliberty.guides</groupId>
@@ -21,7 +29,6 @@
     </properties>
 
     <dependencies>
-
         <!-- Provided dependencies -->
         <dependency>
             <groupId>javax.servlet</groupId>
