@@ -198,7 +198,8 @@ Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `po
 
 In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`modules` that you want to aggregate for the application.
 
-Add the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in to the parent pom.xml file. This allows each child module to inherit the plug-in, so that you can use the Liberty Maven plug-in to develop the modules.
+Add the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in to the parent pom.xml file.
+This allows each child module to inherit the plug-in, so that you can use the Liberty Maven plug-in to develop the modules.
 
 // =================================================================================================
 // Developing the application
