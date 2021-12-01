@@ -259,7 +259,7 @@ Now try updating the converter so that it converts heights correctly, rather tha
 
 [role="code_command hotspot file=1", subs="quotes"]
 ----
-#Replace the `Converter` class in the `jar` directory..#
+#Replace the `Converter` class in the `jar` directory.#
 `jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
 ----
 Converter.java
@@ -289,7 +289,7 @@ To test the multi-module application, add integration tests to the EAR project.
 
 [role="code_command hotspot", subs="quotes"]
 ----
-#Create the integration test class  in the `ear` directory.#
+#Create the integration test class in the `ear` directory.#
 `ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
 IT.java
