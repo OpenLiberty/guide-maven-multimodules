@@ -356,7 +356,12 @@ endif::[]
 
 Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding `start` directory for each module.
 
+ifndef::cloud-hosted[]
 Or, run `mvn -pl <child project> install` from the start directory.
+endif::[]
+ifdef::cloud-hosted[]
+Or, run `mvn -pl <child project> install` from the start directory.
+endif::[]
 
 // =================================================================================================
 // Congratulations! You're done!
