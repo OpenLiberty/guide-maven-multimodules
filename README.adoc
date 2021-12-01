@@ -9,7 +9,7 @@
 :page-layout: guide-multipane
 :page-duration: 30 minutes
 :page-releasedate: 2017-10-04
-:page-majorupdateddate: 2021-11-04
+:page-majorupdateddate: 2021-11-19
 :page-description: Learn how to build an application consisting of JAR, WAR, and EAR modules with Maven
 :page-related-guides: ['maven-intro']
 :page-seo-title: Building a multi-module enterprise Java application with Maven and Open Liberty
@@ -37,7 +37,7 @@ In this guide, you will learn how to:
 
 * establish a dependency between a web module and a Java library module,
 * use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty, and
-* use the Liberty Maven plug-in to develop a multi-module application in development mode without having to prebuild the JAR and WAR files. In development mode, your changes are automatically picked up by the running server.
+* use Liberty Maven plug-in to develop a multi-module application in development mode without having to prebuild the JAR and WAR files. In development mode, your changes are automatically picked up by the running server.
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value in centimeters. Then, the application processes the input by using functions that are found in the JAR file to return the height value in imperial units.
 
@@ -72,7 +72,7 @@ cd finish
 mvn install
 ----
 
-To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the finish directory using the `-pl` flag to specify the ear project. The `-pl` flag specifies the project where the maven goal runs.
+To deploy your EAR application on an Open Liberty server, run the Maven `liberty:run` goal from the finish directory using the `-pl` flag to specify the `ear` project. The `-pl` flag specifies the project where the Maven goal runs.
 
 [role=command]
 ----
@@ -366,7 +366,7 @@ Or, run `mvn -pl <child project> install` from the start directory.
 
 == Great work! You're done!
 
-You built and tested a multi-module unit converter application with Maven on Open Liberty.
+You built and tested a multi-module Java application for unit conversion with Maven on Open Liberty.
 
 
 include::{common-includes}/attribution.adoc[subs="attributes"]
