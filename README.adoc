@@ -294,7 +294,7 @@ Navigate to the `start\ear` directory.
 [role="code_command hotspot", subs="quotes"]
 ----
 #Create the integration test class.#
-`/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
+`src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
 IT.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
