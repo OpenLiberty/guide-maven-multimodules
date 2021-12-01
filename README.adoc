@@ -128,9 +128,9 @@ war/pom.xml
 ----
 include::finish/war/pom.xml[]
 ----
-The [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
+The added [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
 
-Although the [hotspot=parent file=0]`parent/child` structure is not normally needed for multi-module applications, here it helps us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins that are defined in the parent `pom.xml` file, without having to define them again in the child `pom.xml` files.
+Although the [hotspot=parent file=0]`parent/child` structure is not normally needed for multi-module applications, adding it helps us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins that are defined in the parent `pom.xml` file, without having to define them again in the child `pom.xml` files.
 
 // =================================================================================================
 // Assembling multiple modules into an EAR file
