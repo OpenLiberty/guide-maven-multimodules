@@ -83,7 +83,7 @@ ifndef::cloud-hosted[]
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 endif::[]
 ifdef::cloud-hosted[]
-Once the server is running, open another command-line session by selecting **Terminal** > **New Terminal** 
+After the server is running, open another command-line session by selecting **Terminal** > **New Terminal** 
 from the menu of the IDE. Then use the following command to get the URL to access the service.
 Open your browser and check out your service by going to the URL that the command returns.
 ```
@@ -195,7 +195,7 @@ start/pom.xml
 include::finish/pom.xml[]
 ----
 
-Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the [hotspot=packagingType file=0]`packaging` element of the parent [hotspot file=0]`pom.xml` file.
+Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the value for the [hotspot=packagingType file=0]`packaging` element of the parent [hotspot file=0]`pom.xml` file.
 
 In the parent [hotspot file=0]`pom.xml` file, list all of the [hotspot=modules file=0]`modules` that you want to aggregate for the application.
 
@@ -275,7 +275,7 @@ ifndef::cloud-hosted[]
 Now revisit the application at the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL. Try entering a height in centimetres and see if it converts correctly.
 endif::[]
 ifdef::cloud-hosted[]
-Now revisit the application at the URL you previously found. Use the following command to get the URL.
+Now revisit the application at the URL you previously found by running the following command:
 ```
 echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
 ```
