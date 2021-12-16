@@ -21,7 +21,7 @@
 = Creating a multi-module application
 
 [.hidden]
-NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website].
+NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website^].
 
 You will learn how to build an application with multiple modules with Maven and Open Liberty.
 
@@ -79,7 +79,18 @@ To deploy your EAR application on an Open Liberty server, run the Maven `liberty
 mvn -pl ear liberty:run
 ----
 
+ifndef::cloud-hosted[]
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
+endif::[]
+ifdef::cloud-hosted[]
+After the server is running, open another command-line session by selecting **Terminal** > **New Terminal** 
+from the menu of the IDE. Then use the following command to get the URL to access the service.
+Open your browser and check out your service by going to the URL that the command returns.
+```
+echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
+```
+{: codeblock}
+endif::[]
 
 After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal using the `-pl ear` flag from the `finish` directory in another command-line session:
 
@@ -99,6 +110,13 @@ To use a Java library in your web module, you must add a dependency relationship
 As you might have noticed, each module has its own `pom.xml` file. Each module has its own `pom.xml` file because each module is treated as an independent project. You can rebuild, reuse, and reassemble every module on its own.
 
 Navigate to the `start` directory to begin.
+// cloud hosted instructions
+ifdef::cloud-hosted[]
+```
+cd /home/project/guide-maven-multimodules/start
+```
+{: codeblock}
+endif::[]
 
 [role="code_command hotspot", subs="quotes"]
 ----
@@ -110,9 +128,9 @@ war/pom.xml
 ----
 include::finish/war/pom.xml[]
 ----
-The [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
+The added [hotspot=dependency file=0]`dependency` element is the Java library module that implements the functions that you need for the unit converter.
 
-Although the [hotspot=parent file=0]`parent/child` structure is not normally needed for multi-module applications, here it helps us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins that are defined in the parent `pom.xml` file, without having to define them again in the child `pom.xml` files.
+Although the [hotspot=parent file=0]`parent/child` structure is not normally needed for multi-module applications, adding it helps us to better organize all of the projects. This structure allows all of the child projects to make use of the plugins that are defined in the parent `pom.xml` file, without having to define them again in the child `pom.xml` files.
 
 // =================================================================================================
 // Assembling multiple modules into an EAR file
@@ -176,11 +194,12 @@ start/pom.xml
 ----
 include::finish/pom.xml[]
 ----
-Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the [hotspot=packagingType file=0]`packaging` element of the parent [hotspot]`pom.xml` file.
 
-In the parent [hotspot]`pom.xml` file, list all of the [hotspot=modules file=0]`modules` that you want to aggregate for the application.
+Set the [hotspot=packaging file=0]`basic configuration` for the project. Set `pom` as the value for the [hotspot=packagingType file=0]`packaging` element of the parent [hotspot file=0]`pom.xml` file.
 
-Add the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in to the parent pom.xml file. This allows each child module to inherit the plug-in, so that you can use the Liberty Maven plug-in to develop the modules.
+In the parent [hotspot file=0]`pom.xml` file, list all of the [hotspot=modules file=0]`modules` that you want to aggregate for the application.
+
+Adding the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in allows each child module to inherit the plug-in, so that you can use the Liberty Maven plug-in to develop the modules.
 
 // =================================================================================================
 // Developing the application
@@ -189,9 +208,16 @@ Add the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in to t
 == Developing the application
 
 You can now develop the application and the different modules together in dev mode by using the Liberty Maven plug-in.
-To learn more about how to use development mode with multiple modules, check out the link:https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation].
+To learn more about how to use development mode with multiple modules, check out the https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation^].
 
 Navigate to the `start` directory to begin.
+// cloud hosted instructions
+ifdef::cloud-hosted[]
+```
+cd /home/project/guide-maven-multimodules/start
+```
+{: codeblock}
+endif::[]
 
 [role='command']
 include::{common-includes}/devmode-lmp33-start.adoc[]
@@ -200,12 +226,12 @@ include::{common-includes}/devmode-lmp33-start.adoc[]
 
 Update the `HeightsBean` class to use the Java library module that implements the functions that you need for the unit converter.
 
-Navigate to the `start\war` directory.
+Navigate to the `start` directory.
 
 [role="code_command hotspot file=0", subs="quotes"]
 ----
-#Replace the `HeightsBean` class.#
-`src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
+#Replace the `HeightsBean` class in the `war` directory.#
+`war/src/main/java/io/openliberty/guides/multimodules/web/HeightsBean.java`
 ----
 HeightsBean.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
@@ -217,16 +243,25 @@ The [hotspot=getFeet file=0]`getFeet(cm)` invocation was added to the [hotspot=s
 
 The [hotspot=getInches file=0]`getInches(cm)` invocation was added to the [hotspot=setHeightInches file=0]`setHeightInches` method to convert a measurement into inches.
 
+ifndef::cloud-hosted[]
 You can check out the running application by going to the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL.
+endif::[]
+ifdef::cloud-hosted[]
+To check out the running application, open another command-line session by selecting **Terminal** > **New Terminal** 
+from the menu of the IDE. Then use the following command to get the URL.
+Open your browser and check out your service by going to the URL that the command returns.
+```
+echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
+```
+{: codeblock}
+endif::[]
 
 Now try updating the converter so that it converts heights correctly, rather than returning 0.
 
-Navigate to the `start\jar` directory.
-
 [role="code_command hotspot file=1", subs="quotes"]
 ----
-#Replace the `Converter` class.#
-`src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
+#Replace the `Converter` class in the `jar` directory.#
+`jar/src/main/java/io/openliberty/guides/multimodules/lib/Converter.java`
 ----
 Converter.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
@@ -236,19 +271,28 @@ include::finish/jar/src/main/java/io/openliberty/guides/multimodules/lib/Convert
 
 Change the [hotspot=getFeetMethod file=1]`getFeet` method so that it converts from centimetres to feet, and the [hotspot=getInchesMethod file=1]`getInches` method so that it converts from centimetres to inches. Update the `sum`, `diff`, `product` and `quotient` functions so that they add, subtract, multiply, and divide 2 numbers respectively.
 
+ifndef::cloud-hosted[]
 Now revisit the application at the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL. Try entering a height in centimetres and see if it converts correctly.
+endif::[]
+ifdef::cloud-hosted[]
+Now revisit the application at the URL you previously found by running the following command:
+```
+echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
+```
+{: codeblock}
+
+Try entering a height in centimetres and see if it converts correctly.
+endif::[]
 
 
 === Testing the multi-module application
 
 To test the multi-module application, add integration tests to the EAR project.
 
-Navigate to the `start\ear` directory.
-
 [role="code_command hotspot", subs="quotes"]
 ----
-#Create the integration test class.#
-`src/test/java/it/io/openliberty/guides/multimodules/IT.java`
+#Create the integration test class in the `ear` directory.#
+`ear/src/test/java/it/io/openliberty/guides/multimodules/IT.java`
 ----
 IT.java
 [source, Java, linenums, role='code_column hide_tags=copyright']
@@ -293,16 +337,31 @@ or by typing *q* and then pressing the *enter/return* key.
 
 You aggregated and developed the application. Now, you can run `mvn install` once from the `start` directory and it will automatically build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file that contains the JAR and WAR files in the `ear/target` directory.
 
+ifndef::cloud-hosted[]
 Run the following command from the start directory to build the entire application:
 
 [role=command]
 ----
 mvn install
 ----
+endif::[]
+ifdef::cloud-hosted[]
+Run the following commands to navigate to the start directory and build the entire application:
+```
+cd /home/project/guide-maven-multimodules/start
+mvn install
+```
+{: codeblock}
+endif::[]
 
 Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding `start` directory for each module.
 
+ifndef::cloud-hosted[]
 Or, run `mvn -pl <child project> install` from the start directory.
+endif::[]
+ifdef::cloud-hosted[]
+Or, run `mvn -pl <child project> install` from the start directory.
+endif::[]
 
 // =================================================================================================
 // Congratulations! You're done!
