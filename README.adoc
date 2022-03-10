@@ -1,4 +1,4 @@
-// Copyright (c) 2017, 2021 IBM Corporation and others.
+// Copyright (c) 2017, 2022 IBM Corporation and others.
 // Licensed under Creative Commons Attribution-NoDerivatives
 // 4.0 International (CC BY-ND 4.0)
 //   https://creativecommons.org/licenses/by-nd/4.0/
@@ -63,8 +63,7 @@ Access partial implementation of the application from the `start` folder. This f
 
 The `finish` directory in the root of this guide contains the finished application. Give it a try before you proceed.
 
-To try out the application, first go to the `finish` directory and run the following
-Maven goal to build the application:
+To try out the application, first go to the `finish` directory and run the following Maven goal to build the application:
 
 [role=command]
 ----
@@ -83,9 +82,7 @@ ifndef::cloud-hosted[]
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 endif::[]
 ifdef::cloud-hosted[]
-After the server is running, open another command-line session by selecting **Terminal** > **New Terminal** 
-from the menu of the IDE. Then use the following command to get the URL to access the service.
-Open your browser and check out your service by going to the URL that the command returns.
+After the server is running, open another command-line session by selecting **Terminal** > **New Terminal** from the menu of the IDE. Then use the following command to get the URL to access the service. Open your browser and check out your service by going to the URL that the command returns.
 ```
 echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
 ```
@@ -156,8 +153,7 @@ Set the [hotspot=packaging file=0]`basic configuration` for the project and set 
 
 The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=dependency-war file=0]`web module` were added as dependencies. Specify a type of [hotspot=warType file=0]`war` for the web module. If you don’t specify this type for the web module, Maven looks for a JAR file.
 
-The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`jarModule` and [hotspot=webModule file=0]`webModule` modules to be packaged into the EAR file.
-To customize the context root of the application, set the [hotspot=contextRoot file=0]`contextRoot` element to [hotspot=contextRoot file=0]`/converter` in the [hotspot=webModule file=0]`webModule`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
+The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`jarModule` and [hotspot=webModule file=0]`webModule` modules to be packaged into the EAR file. To customize the context root of the application, set the [hotspot=contextRoot file=0]`contextRoot` element to [hotspot=contextRoot file=0]`/converter` in the [hotspot=webModule file=0]`webModule`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
 To deploy and run an EAR application on an Open Liberty server, you need to provide a server configuration file.
 
@@ -207,8 +203,7 @@ Adding the [hotspot=liberty-maven-plugin file=0]`liberty-maven-plugin` plug-in a
 
 == Developing the application
 
-You can now develop the application and the different modules together in dev mode by using the Liberty Maven plug-in.
-To learn more about how to use development mode with multiple modules, check out the https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation^].
+You can now develop the application and the different modules together in dev mode by using the Liberty Maven plug-in. To learn more about how to use development mode with multiple modules, check out the https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation^].
 
 Navigate to the `start` directory to begin.
 // cloud hosted instructions
@@ -247,9 +242,7 @@ ifndef::cloud-hosted[]
 You can check out the running application by going to the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL.
 endif::[]
 ifdef::cloud-hosted[]
-To check out the running application, open another command-line session by selecting **Terminal** > **New Terminal** 
-from the menu of the IDE. Then use the following command to get the URL.
-Open your browser and check out your service by going to the URL that the command returns.
+To check out the running application, open another command-line session by selecting **Terminal** > **New Terminal** from the menu of the IDE. Then use the following command to get the URL. Open your browser and check out your service by going to the URL that the command returns.
 ```
 echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
 ```
@@ -326,8 +319,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 ----
 
 
-When you are done checking out the service, exit development mode by pressing `CTRL+C` in the command-line session where you ran the server, 
-or by typing *q* and then pressing the *enter/return* key.
+When you are done checking out the service, exit development mode by pressing `CTRL+C` in the command-line session where you ran the server, or by typing *q* and then pressing the *enter/return* key.
 
 // =================================================================================================
 // Building the multi-module application
