@@ -82,11 +82,8 @@ ifndef::cloud-hosted[]
 Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 endif::[]
 ifdef::cloud-hosted[]
-After the server is running, open another command-line session by selecting **Terminal** > **New Terminal** from the menu of the IDE. Then use the following command to get the URL to access the service. Open your browser and check out your service by going to the URL that the command returns.
-```
-echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
-```
-{: codeblock}
+After the server is running, click the following button to check out your service by visiting the ***/converter*** endpoint.
+::startApplication{port="9080" display="external" name="Visit application" route="/converter"}
 endif::[]
 
 After you are finished checking out the application, stop the Open Liberty server by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal using the `-pl ear` flag from the `finish` directory in another command-line session:
@@ -109,10 +106,9 @@ As you might have noticed, each module has its own `pom.xml` file. Each module h
 Navigate to the `start` directory to begin.
 // cloud hosted instructions
 ifdef::cloud-hosted[]
-```
+```bash
 cd /home/project/guide-maven-multimodules/start
 ```
-{: codeblock}
 endif::[]
 
 [role="code_command hotspot", subs="quotes"]
@@ -208,10 +204,9 @@ You can now develop the application and the different modules together in dev mo
 Navigate to the `start` directory to begin.
 // cloud hosted instructions
 ifdef::cloud-hosted[]
-```
+```bash
 cd /home/project/guide-maven-multimodules/start
 ```
-{: codeblock}
 endif::[]
 
 [role='command']
@@ -242,11 +237,8 @@ ifndef::cloud-hosted[]
 You can check out the running application by going to the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL.
 endif::[]
 ifdef::cloud-hosted[]
-To check out the running application, open another command-line session by selecting **Terminal** > **New Terminal** from the menu of the IDE. Then use the following command to get the URL. Open your browser and check out your service by going to the URL that the command returns.
-```
-echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
-```
-{: codeblock}
+Click the following button to check out the running application by visiting the ***/converter*** endpoint:
+::startApplication{port="9080" display="external" name="Visit application" route="/converter"}
 endif::[]
 
 Now try updating the converter so that it converts heights correctly, rather than returning 0.
@@ -268,11 +260,8 @@ ifndef::cloud-hosted[]
 Now revisit the application at the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL. Try entering a height in centimetres and see if it converts correctly.
 endif::[]
 ifdef::cloud-hosted[]
-Now revisit the application at the URL you previously found by running the following command:
-```
-echo http://${USERNAME}-9080.$(echo $TOOL_DOMAIN | sed 's/\.labs\./.proxy./g')/converter
-```
-{: codeblock}
+Now revisit the application by visiting the ***/converter*** endpoint:
+::startApplication{port="9080" display="external" name="Visit application" route="/converter"}
 
 Try entering a height in centimetres and see if it converts correctly.
 endif::[]
@@ -339,11 +328,10 @@ mvn install
 endif::[]
 ifdef::cloud-hosted[]
 Run the following commands to navigate to the start directory and build the entire application:
-```
+```bash
 cd /home/project/guide-maven-multimodules/start
 mvn install
 ```
-{: codeblock}
 endif::[]
 
 Since the modules are independent, you can re-build them individually by running `mvn install` from the corresponding `start` directory for each module.
