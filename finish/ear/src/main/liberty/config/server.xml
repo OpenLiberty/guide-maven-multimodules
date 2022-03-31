@@ -1,7 +1,7 @@
 <server description="Sample Liberty server">
 
     <featureManager>
-        <feature>jsp-2.3</feature>
+        <feature>pages-3.0</feature>
     </featureManager>
 
     <variable name="default.http.port" defaultValue="9080" />
