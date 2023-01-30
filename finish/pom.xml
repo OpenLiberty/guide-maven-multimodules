@@ -28,14 +28,18 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!-- tag::maven-war-plugin[] -->
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.3.2</version>
                 </plugin>
+                <!-- end::maven-war-plugin[] -->
+                <!-- tag::maven-compiler-plugin[] -->
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.10.1</version>
                 </plugin>
+                <!-- end::maven-compiler-plugin[] -->
             </plugins>
         </pluginManagement>
         <plugins>
