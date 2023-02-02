@@ -26,13 +26,29 @@
     <!-- end::modules[] -->
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <!-- tag::maven-war-plugin[] -->
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.3.2</version>
+                </plugin>
+                <!-- end::maven-war-plugin[] -->
+                <!-- tag::maven-compiler-plugin[] -->
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.10.1</version>
+                </plugin>
+                <!-- end::maven-compiler-plugin[] -->
+            </plugins>
+        </pluginManagement>
         <plugins>
             <!-- Enable liberty-maven plugin -->
             <!-- tag::liberty-maven-plugin[] -->
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.7.1</version>
             </plugin>
             <!-- end::liberty-maven-plugin[] -->
         </plugins>

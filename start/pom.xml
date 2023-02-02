@@ -14,4 +14,8 @@
     <!-- TO-DO: ADD THE CONFIGURATION HERE -->
     <!-- end::modules[] -->
 
+    <!-- tag::liberty-maven-plugin[] -->
+    <!-- TO-DO: ADD THE CONFIGURATION HERE -->
+    <!-- end::liberty-maven-plugin[] -->
+
 </project>
