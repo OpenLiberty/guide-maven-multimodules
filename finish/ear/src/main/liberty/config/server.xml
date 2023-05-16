@@ -1,7 +1,7 @@
 <server description="Sample Liberty server">
 
     <featureManager>
-        <feature>pages-3.0</feature>
+        <feature>pages-3.1</feature>
     </featureManager>
 
     <variable name="default.http.port" defaultValue="9080" />
