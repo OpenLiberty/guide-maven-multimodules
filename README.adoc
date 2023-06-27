@@ -37,7 +37,7 @@ In this guide, you will learn how to:
 
 * establish a dependency between a web module and a Java library module,
 * use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty, and
-* use Liberty Maven plug-in to develop a multi-module application in development mode without having to prebuild the JAR and WAR files. In development mode, your changes are automatically picked up by the running server.
+* use Liberty Maven plug-in to develop a multi-module application in dev mode without having to prebuild the JAR and WAR files. In dev mode, your changes are automatically picked up by the running server.
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value in centimeters. Then, the application processes the input by using functions that are found in the JAR file to return the height value in imperial units.
 
@@ -199,7 +199,7 @@ Adding the [hotspot=maven-war-plugin file=0]`maven-war-plugin`, [hotspot=maven-c
 
 == Developing the application
 
-You can now develop the application and the different modules together in dev mode by using the Liberty Maven plug-in. To learn more about how to use development mode with multiple modules, check out the https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation^].
+You can now develop the application and the different modules together in dev mode by using the Liberty Maven plug-in. To learn more about how to use dev mode with multiple modules, check out the https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#multiple-modules[Documentation^].
 
 Navigate to the `start` directory to begin.
 // cloud hosted instructions
@@ -289,7 +289,7 @@ The [hotspot=testHeightsPage file=0]`testHeightsPage` tests to check that the ap
 
 === Running the tests
 
-Because you started Open Liberty in development mode, press the *enter/return* key to run the tests.
+Because you started Open Liberty in dev mode, press the *enter/return* key to run the tests.
 
 You will see the following output:
 
@@ -308,7 +308,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 ----
 
 
-When you are done checking out the service, exit development mode by pressing `CTRL+C` in the command-line session where you ran the server, or by typing *q* and then pressing the *enter/return* key.
+When you are done checking out the service, exit dev mode by pressing `CTRL+C` in the command-line session where you ran the server, or by typing *q* and then pressing the *enter/return* key.
 
 // =================================================================================================
 // Building the multi-module application
