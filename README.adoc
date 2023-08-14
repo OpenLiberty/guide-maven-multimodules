@@ -37,7 +37,7 @@ In this guide, you will learn how to:
 
 * establish a dependency between a web module and a Java library module,
 * use Maven to package the WAR file and the JAR file into an EAR file so that you can run and test the application on Open Liberty, and
-* use Liberty Maven plug-in to develop a multi-module application in https://openliberty.io/docs/latest/development-mode.html#_run_multi_module_maven_projects_in_dev_mode[dev mode^] without having to prebuild the JAR and WAR files. In dev mode, your changes are automatically picked up by the running server.
+* use Liberty Maven plug-in to develop a multi-module application in https://openliberty.io/docs/latest/development-mode.html#_run_multi_module_maven_projects_in_dev_mode[dev mode^] without having to prebuild the JAR and WAR files. In dev mode, your changes are automatically picked up by the running Liberty instance.
 
 You will build a unit converter application that converts heights from centimeters into feet and inches. The application will request the user to enter a height value in centimeters. Then, the application processes the input by using functions that are found in the JAR file to return the height value in imperial units.
 
@@ -71,7 +71,7 @@ cd finish
 mvn install
 ----
 
-To deploy your EAR application on an Open Liberty instance, run the Maven `liberty:run` goal from the finish directory using the `-pl` flag to specify the `ear` project. The `-pl` flag specifies the project where the Maven goal runs.
+To deploy your EAR application on Open Liberty, run the Maven `liberty:run` goal from the finish directory using the `-pl` flag to specify the `ear` project. The `-pl` flag specifies the project where the Maven goal runs.
 
 [role=command]
 ----
@@ -79,14 +79,14 @@ mvn -pl ear liberty:run
 ----
 
 ifndef::cloud-hosted[]
-Once the server is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
+Once the Liberty instance is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 endif::[]
 ifdef::cloud-hosted[]
-After the server is running, click the following button to check out your service by visiting the ***/converter*** endpoint.
+Once the Liberty instance is running, click the following button to check out your service by visiting the ***/converter*** endpoint.
 ::startApplication{port="9080" display="external" name="Visit application" route="/converter"}
 endif::[]
 
-After you are finished checking out the application, stop the Open Liberty instance by pressing `CTRL+C` in the command-line session where you ran the server. Alternatively, you can run the `liberty:stop` goal using the `-pl ear` flag from the `finish` directory in another command-line session:
+After you are finished checking out the application, stop the Open Liberty instance by pressing `CTRL+C` in the command-line session where you ran the Liberty. Alternatively, you can run the `liberty:stop` goal using the `-pl ear` flag from the `finish` directory in another command-line session:
 
 [role=command]
 ----
@@ -131,7 +131,7 @@ Although the [hotspot=parent file=0]`parent/child` structure is not normally nee
 
 == Assembling multiple modules into an EAR file
 
-To deploy the entire application on the Open Liberty instance, first package the application. Use the EAR project to assemble multiple modules into an EAR file.
+To deploy the entire application on Open Liberty, first package the application. Use the EAR project to assemble multiple modules into an EAR file.
 
 Navigate to the `ear` folder and find a template `pom.xml` file.
 [role="code_command hotspot", subs="quotes"]
@@ -151,11 +151,11 @@ The [hotspot=dependency-jar file=0]`Java library module` and the [hotspot=depend
 
 The definition and configuration of the [hotspot=maven-ear-plugin file=0]`maven-ear-plugin` plug-in were added to create an EAR file. Define the [hotspot=jarModule file=0]`jarModule` and [hotspot=webModule file=0]`webModule` modules to be packaged into the EAR file. To customize the context root of the application, set the [hotspot=contextRoot file=0]`contextRoot` element to [hotspot=contextRoot file=0]`/converter` in the [hotspot=webModule file=0]`webModule`. Otherwise, Maven automatically uses the WAR file `artifactId` ID as the context root for the application while generating the `application.xml` file.
 
-To deploy and run an EAR application on an Open Liberty instance, you need to provide a server configuration file.
+To deploy and run an EAR application on an Open Liberty instance, you need to provide a Liberty server.xml configuration file.
 
 [role="code_command hotspot file=1", subs="quotes"]
 ----
-#Create the server configuration file.#
+#Create the Liberty server.xml configuration file.#
 `ear/src/main/liberty/config/server.xml`
 ----
 server.xml
@@ -164,7 +164,7 @@ server.xml
 include::finish/ear/src/main/liberty/config/server.xml[]
 ----
 
-You must configure the `server.xml` file with the [hotspot=EARdefinition file=1]`enterpriseApplication` element to specify the location of your EAR application.
+You must configure the `server.xml` configuration file with the [hotspot=EARdefinition file=1]`enterpriseApplication` element to specify the location of your EAR application.
 
 // =================================================================================================
 // Aggregating the entire build
@@ -308,7 +308,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 ----
 
 
-When you are done checking out the service, exit dev mode by pressing `CTRL+C` in the command-line session where you ran the server, or by typing *q* and then pressing the *enter/return* key.
+When you are done checking out the service, exit dev mode by pressing `CTRL+C` in the command-line session where you ran the Liberty, or by typing *q* and then pressing the *enter/return* key.
 
 // =================================================================================================
 // Building the multi-module application
