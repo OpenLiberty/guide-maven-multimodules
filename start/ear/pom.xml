@@ -17,8 +17,8 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <!-- Liberty configuration -->
-        <liberty.var.default.http.port>9080</liberty.var.default.http.port>
-        <liberty.var.default.https.port>9443</liberty.var.default.https.port>
+        <liberty.var.http.port>9080</liberty.var.http.port>
+        <liberty.var.https.port>9443</liberty.var.https.port>
     </properties>
 
     <dependencies>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
+            <version>5.10.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -71,15 +71,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.2.5</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <default.http.port>
-                            ${liberty.var.default.http.port}
-                        </default.http.port>
-                        <default.https.port>
-                            ${liberty.var.default.https.port}
-                        </default.https.port>
+                        <http.port>
+                            ${liberty.var.http.port}
+                        </http.port>
+                        <https.port>
+                            ${liberty.var.https.port}
+                        </https.port>
                         <cf.context.root>/converter</cf.context.root>
                     </systemPropertyVariables>
                 </configuration>
