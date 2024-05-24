@@ -64,5 +64,5 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          name: server-logs
+          name: ear-logs
           path: finish/ear/target/liberty/wlp/usr/servers/defaultServer/logs/
