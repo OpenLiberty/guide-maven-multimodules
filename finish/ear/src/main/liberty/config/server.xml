@@ -1,7 +1,8 @@
 <server description="Sample Liberty server">
 
     <featureManager>
-        <feature>pages-3.1</feature>
+        <platform>jakartaee-10.0</platform>
+        <feature>pages</feature>
     </featureManager>
 
     <variable name="http.port" defaultValue="9080" />
