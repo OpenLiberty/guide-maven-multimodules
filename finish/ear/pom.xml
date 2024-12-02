@@ -38,6 +38,7 @@
             <artifactId>guide-maven-multimodules-jar</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
+            <scope>provided</scope>
         </dependency>
         <!-- end::dependency-jar[] -->
         <!-- tag::dependency-war[] -->
