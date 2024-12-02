@@ -71,13 +71,6 @@
                 <version>3.3.0</version>
                 <configuration>
                     <modules>
-                        <!-- tag::jarModule[] -->
-                        <jarModule>
-                            <groupId>io.openliberty.guides</groupId>
-                            <artifactId>guide-maven-multimodules-jar</artifactId>
-                            <uri>/guide-maven-multimodules-jar-1.0-SNAPSHOT.jar</uri>
-                        </jarModule>
-                        <!-- end::jarModule[] -->
                         <!-- tag::webModule[] -->
                         <webModule>
                             <groupId>io.openliberty.guides</groupId>
