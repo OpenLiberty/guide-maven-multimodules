@@ -18,4 +18,5 @@
         name="guide-maven-multimodules-ear" />
     <!-- end::EARdefinition[] -->
     <!-- end::server[] -->
+
 </server>
