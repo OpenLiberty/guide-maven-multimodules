@@ -6,16 +6,10 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- tag::packaging[] -->
     <!-- TO-DO: ADD THE CONFIGURATION HERE -->
-    <!-- end::packaging[] -->
 
-    <!-- tag::modules[] -->
     <!-- TO-DO: ADD THE CONFIGURATION HERE -->
-    <!-- end::modules[] -->
 
-    <!-- tag::liberty-maven-plugin[] -->
     <!-- TO-DO: ADD THE CONFIGURATION HERE -->
-    <!-- end::liberty-maven-plugin[] -->
 
 </project>
