@@ -323,7 +323,7 @@ When you are done checking out the service, exit dev mode by pressing `CTRL+C` i
 
 == Building the multi-module application
 
-You have aggregated and developed the application. Now, you can run `mvn install` from the `start` directory to build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file that contains the JAR and WAR files in the `ear/target` directory.
+You have aggregated and developed the application. Now, you can run `mvn install` from the `start` directory to build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file that contains the WAR file in the `ear/target` directory.
 
 ifndef::cloud-hosted[]
 Run the following command from the start directory to build the entire application:
