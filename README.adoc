@@ -89,8 +89,8 @@ ifndef::cloud-hosted[]
 When the Liberty instance is running, you can find the application at the following URL: http://localhost:9080/converter/[http://localhost:9080/converter/^]
 endif::[]
 ifdef::cloud-hosted[]
-When the Liberty instance is running, click the following button to check out your service by visiting the ***/converter*** endpoint.
-::startApplication{port="9080" display="external" name="Visit application" route="/converter"}
+When the Liberty instance is running, click the following button to check out your service at the ***/converter*** endpoint.
+::startApplication{port="9080" display="external" name="Check out the application" route="/converter"}
 endif::[]
 
 After you are finished checking out the application, stop the Open Liberty instance by pressing `CTRL+C` in the command-line session where you ran the Liberty. Alternatively, you can run the `liberty:stop` goal using the `-pl ear` flag from the `finish` directory in another command-line session:
@@ -244,8 +244,8 @@ ifndef::cloud-hosted[]
 You can check out the running application by going to the http://localhost:9080/converter/[http://localhost:9080/converter/^] URL.
 endif::[]
 ifdef::cloud-hosted[]
-Click the following button to check out the running application by visiting the ***/converter*** endpoint:
-::startApplication{port="9080" display="external" name="Visit application" route="/converter"}
+Click the following button to check out the running application at the ***/converter*** endpoint:
+::startApplication{port="9080" display="external" name="Check out the application" route="/converter"}
 endif::[]
 
 Now try updating the converter so that it converts heights correctly, rather than returning 0.
