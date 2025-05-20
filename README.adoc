@@ -65,18 +65,66 @@ The `finish` directory in the root of this guide contains the finished applicati
 
 To try out the application, first go to the `finish` directory and run the following Maven goal to build the application:
 
-[role=command]
-----
+include::{common-includes}/os-tabs.adoc[]
+
+[.tab_content.windows_section]
+--
+[role='command']
+```
 cd finish
-mvn install
-----
+mvnw.cmd install
+```
+--
+
+[.tab_content.mac_section]
+--
+[role='command']
+```
+cd finish
+./mvnw install
+```
+--
+
+[.tab_content.linux_section]
+--
+[role='command']
+```
+cd finish
+./mvnw install
+```
+--
 
 To deploy your EAR application on Open Liberty, run the Maven `liberty:run` goal from the finish directory using the `-pl` flag to specify the `ear` project. The `-pl` flag specifies the project where the Maven goal runs.
 
-[role=command]
-----
-mvn -pl ear liberty:run
-----
+include::{common-includes}/os-tabs.adoc[]
+
+[.tab_content.windows_section]
+--
+[role='command']
+```
+cd start
+mvnw.cmd -pl ear liberty:run
+```
+--
+
+[.tab_content.mac_section]
+--
+[role='command']
+```
+cd start
+./mvnw -pl ear liberty:run
+```
+--
+
+[.tab_content.linux_section]
+--
+[role='command']
+```
+cd start
+./mvnw -pl ear liberty:run
+```
+--
+
 
 After you see the following message, your Liberty instance is ready:
 
@@ -95,10 +143,34 @@ endif::[]
 
 After you are finished checking out the application, stop the Open Liberty instance by pressing `CTRL+C` in the command-line session where you ran the Liberty. Alternatively, you can run the `liberty:stop` goal using the `-pl ear` flag from the `finish` directory in another command-line session:
 
-[role=command]
-----
-mvn -pl ear liberty:stop
-----
+include::{common-includes}/os-tabs.adoc[]
+
+[.tab_content.windows_section]
+--
+[role='command']
+```
+cd start
+mvnw.cmd -pl ear liberty:stop
+```
+--
+
+[.tab_content.mac_section]
+--
+[role='command']
+```
+cd start
+./mvnw -pl ear liberty:stop
+```
+--
+
+[.tab_content.linux_section]
+--
+[role='command']
+```
+cd start
+./mvnw -pl ear liberty:stop
+```
+--
 
 // =================================================================================================
 // Adding dependencies between WAR and JAR modules
@@ -217,7 +289,7 @@ cd /home/project/guide-maven-multimodules/start
 endif::[]
 
 [role='command']
-include::{common-includes}/devmode-lmp33-start.adoc[]
+include::{common-includes}/devmode-mvnw-start.adoc[]
 
 === Updating the Java classes in different modules
 
@@ -323,31 +395,52 @@ When you are done checking out the service, exit dev mode by pressing `CTRL+C` i
 
 == Building the multi-module application
 
-You have aggregated and developed the application. Now, you can run `mvn install` from the `start` directory to build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file that contains the WAR file in the `ear/target` directory.
+You have aggregated and developed the application. Now, you can run the Maven `install` goal from the `start` directory to build all your modules. This command creates a JAR file in the `jar/target` directory, a WAR file in the `war/target` directory, and an EAR file that contains the WAR file in the `ear/target` directory.
 
 ifndef::cloud-hosted[]
 Run the following command from the start directory to build the entire application:
 
-[role=command]
-----
-mvn install
-----
+include::{common-includes}/os-tabs.adoc[]
+
+[.tab_content.windows_section]
+--
+[role='command']
+```
+mvnw.cmd install
+```
+--
+
+[.tab_content.mac_section]
+--
+[role='command']
+```
+./mvnw install
+```
+--
+
+[.tab_content.linux_section]
+--
+[role='command']
+```
+./mvnw install
+```
+--
 endif::[]
 ifdef::cloud-hosted[]
 Run the following commands to navigate to the start directory and build the entire application:
 ```bash
 cd /home/project/guide-maven-multimodules/start
-mvn install
+./mvnw install
 ```
 endif::[]
 
-Because the modules are independent, you can re-build them individually by running `mvn install` from the corresponding `start` directory for each module.
+Because the modules are independent, you can re-build them individually by running the Maven `install` goal from the corresponding `start` directory for each module.
 
 ifndef::cloud-hosted[]
-Or, run `mvn -pl <child project> install` from the start directory.
+Or, run `./mvnw -pl <child project> install` from the start directory.
 endif::[]
 ifdef::cloud-hosted[]
-Or, run `mvn -pl <child project> install` from the start directory.
+Or, run `./mvnw -pl <child project> install` from the start directory.
 endif::[]
 
 // =================================================================================================
