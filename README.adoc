@@ -102,7 +102,6 @@ include::{common-includes}/os-tabs.adoc[]
 --
 [role='command']
 ```
-cd start
 mvnw.cmd -pl ear liberty:run
 ```
 --
@@ -111,7 +110,6 @@ mvnw.cmd -pl ear liberty:run
 --
 [role='command']
 ```
-cd start
 ./mvnw -pl ear liberty:run
 ```
 --
@@ -120,7 +118,6 @@ cd start
 --
 [role='command']
 ```
-cd start
 ./mvnw -pl ear liberty:run
 ```
 --
@@ -149,7 +146,6 @@ include::{common-includes}/os-tabs.adoc[]
 --
 [role='command']
 ```
-cd start
 mvnw.cmd -pl ear liberty:stop
 ```
 --
@@ -158,7 +154,6 @@ mvnw.cmd -pl ear liberty:stop
 --
 [role='command']
 ```
-cd start
 ./mvnw -pl ear liberty:stop
 ```
 --
@@ -167,7 +162,6 @@ cd start
 --
 [role='command']
 ```
-cd start
 ./mvnw -pl ear liberty:stop
 ```
 --
