@@ -135,6 +135,7 @@ When the Liberty instance is running, you can find the application at the follow
 endif::[]
 ifdef::cloud-hosted[]
 When the Liberty instance is running, click the following button to check out your service at the ***/converter*** endpoint.
+
 ::startApplication{port="9080" display="external" name="Check out the application" route="/converter"}
 endif::[]
 
@@ -311,6 +312,7 @@ You can check out the running application by going to the http://localhost:9080/
 endif::[]
 ifdef::cloud-hosted[]
 Click the following button to check out the running application at the ***/converter*** endpoint:
+
 ::startApplication{port="9080" display="external" name="Check out the application" route="/converter"}
 endif::[]
 
@@ -334,6 +336,7 @@ Now check out the application again at the http://localhost:9080/converter/[http
 endif::[]
 ifdef::cloud-hosted[]
 Now check out the application again at the ***/converter*** endpoint:
+
 ::startApplication{port="9080" display="external" name="Check out the application" route="/converter"}
 
 Try entering a height in centimeters and see whether it converts correctly.
