@@ -31,7 +31,7 @@
                 <!-- tag::maven-war-plugin[] -->
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>3.5.1</version>
                 </plugin>
                 <!-- end::maven-war-plugin[] -->
                 <!-- tag::maven-compiler-plugin[] -->
