@@ -5,6 +5,9 @@
     http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
 
     <!-- tag::packaging[] -->
     <!-- tag::groupId[] -->
@@ -31,13 +34,13 @@
                 <!-- tag::maven-war-plugin[] -->
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>3.5.1</version>
                 </plugin>
                 <!-- end::maven-war-plugin[] -->
                 <!-- tag::maven-compiler-plugin[] -->
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.14.1</version>
+                    <version>3.16.0</version>
                 </plugin>
                 <!-- end::maven-compiler-plugin[] -->
             </plugins>
@@ -48,7 +51,7 @@
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.11.5</version>
+                <version>3.12.5</version>
             </plugin>
             <!-- end::liberty-maven-plugin[] -->
         </plugins>

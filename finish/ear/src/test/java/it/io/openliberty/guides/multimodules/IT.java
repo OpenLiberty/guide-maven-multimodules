@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 import org.junit.jupiter.api.Test;
@@ -49,7 +50,7 @@ public class IT {
 
     private HttpURLConnection testRequestHelper(String url, String method)
                     throws Exception {
-        URL obj = new URL(url);
+        URL obj = URI.create(url).toURL();
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         // optional default is GET
         con.setRequestMethod(method);
